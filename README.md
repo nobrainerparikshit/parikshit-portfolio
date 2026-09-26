@@ -9,9 +9,9 @@ For local HTTP preview, from this directory run:
 Then visit http://127.0.0.1:8000.
 
 ## Editing
-Each page is plain HTML. style.css contains the reference layout; theme.css provides the original night palette; personal.css contains the adaptation. site.js handles navigation, theme, progress, and email draft composition. content.json is an editable reference dataset; changing it alone does not regenerate HTML.
+Each page is plain HTML. style.css contains the reference layout; theme.css provides the original night palette; personal.css contains the adaptation. site.js handles navigation, theme, progress, and Formspree contact submissions. content.json is an editable reference dataset; changing it alone does not regenerate HTML.
 
-The contact form opens a draft addressed to parikshitsinh.jadeja@masason.org in the visitor's email application. It does not send automatically and has no backend. Social links, repositories, complete blog essays, and email delivery require an internet connection.
+The contact form posts to https://formspree.io/f/xkolvqlj and displays submission success or errors in place. Formspree manages delivery; the direct email link remains available as a fallback. Without JavaScript, the form uses a standard POST to Formspree. Social links, repositories, complete blog essays, and email delivery require an internet connection.
 
 ## Content notes
 Prepared from the supplied experience/achievement text and https://pariksh1t.netlify.app/. Your existing site's photograph is included locally. Conceptual project illustrations are labelled and are not project screenshots. The original portfolio archives remain separate.

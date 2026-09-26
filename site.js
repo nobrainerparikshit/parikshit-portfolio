@@ -55,14 +55,41 @@
     setInterval(()=>{now.textContent=phrases[++i%phrases.length];},3800);
   }
   const form=document.getElementById('contact-form');
-  if(form) form.addEventListener('submit',event=>{
+  if(form) form.addEventListener('submit',async event=>{
     event.preventDefault();
+    const submit=form.querySelector('button[type="submit"]');
+    const status=document.getElementById('form-status');
+    if(submit.disabled) return;
     if(!form.reportValidity()) return;
     const data=new FormData(form);
-    const body=`${data.get('message')}\n\nFrom: ${data.get('name')}\nReply to: ${data.get('email')}`;
-    const mailto='mailto:parikshitsinh.jadeja@masason.org?subject='+encodeURIComponent(data.get('subject'))+'&body='+encodeURIComponent(body);
-    document.getElementById('form-status').textContent='Opening your email app. Your message has not been sent; review and send it there.';
-    location.href=mailto;
+    submit.disabled=true;
+    submit.textContent='Sending…';
+    form.setAttribute('aria-busy','true');
+    status.textContent='Sending your message…';
+    try {
+      const response=await fetch(form.action,{
+        method:'POST',
+        body:data,
+        headers:{Accept:'application/json'}
+      });
+      if(!response.ok) {
+        const result=await response.json().catch(()=>null);
+        const details=result&&Array.isArray(result.errors)
+          ? result.errors.map(error=>error.message).filter(Boolean).join(' ')
+          : '';
+        throw new Error(details||'Your message could not be sent. Please try again or use the email link below.');
+      }
+      status.textContent='Thank you! Your message was submitted successfully.';
+      form.reset();
+    } catch(error) {
+      status.textContent=error instanceof TypeError
+        ? 'Could not connect. Please check your internet connection and try again, or use the email link below.'
+        : error.message;
+    } finally {
+      submit.disabled=false;
+      submit.textContent='Send Message →';
+      form.removeAttribute('aria-busy');
+    }
   });
   // Use the reference's letter-by-letter entrance on the home page only.
   if(now&&!reduced) {

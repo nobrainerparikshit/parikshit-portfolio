@@ -94,7 +94,11 @@
         <h2 class="sec-title">Correspondence</h2>
       </div>
       <div class="contact-col">
-        <form id="contact-form">
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/xkolvqlj"
+          method="POST"
+        >
           <div class="form-row">
             <div class="form-field">
               <label for="name">Name</label
@@ -136,9 +140,9 @@
               required
             ></textarea>
           </div>
-          <button class="btn-send" type="submit">Open email draft →</button>
+          <button class="btn-send" type="submit">Send Message →</button>
           <p class="contact-note">
-            Opens your email app. Review and send your message there.
+            Send your message directly through this form.
           </p>
           <p id="form-status" role="status" aria-live="polite"></p>
         </form>

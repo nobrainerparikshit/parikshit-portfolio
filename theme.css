@@ -1,0 +1,379 @@
+/* Shared: night-mode palette, the Konami stamp, and the theme toggle.
+   Loaded on every page. Dark overrides only bite on the standard
+   "paper document" pages that define --paper / --ink. */
+
+/* ── Skip link ──────────────────────────────────────────────────
+   Invisible until a keyboard user tabs onto it, then it drops in
+   from the top and jumps them past the nav to the content. */
+.skip-link {
+  position: fixed; top: -60px; left: 1rem; z-index: 1001;
+  font-family: 'Inconsolata', monospace; font-size: 0.72rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: #fffff8; background: #111110;
+  padding: 0.65rem 1.1rem; text-decoration: none;
+  border: 1px solid #fffff8;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0.9rem; outline: 2px solid #fffff8; outline-offset: 2px; }
+
+/* ── Inline brand icons ─────────────────────────────────────────
+   icons.svg replaced Font Awesome: same marks, one small sprite,
+   no third-party CSS. Sized like the glyphs they replaced. */
+.icon {
+  width: 1em; height: 1em;
+  fill: currentColor;
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+/* ── Night reading mode ─────────────────────────────────────────
+   Scoped to body.paper: only the standard manuscript pages flip.
+   Bespoke pages (awards hall, gym, budget...) own their palettes. */
+html.dark body.paper {
+  --paper:      #16150f;
+  --ink:        #f0ead9;
+  --ink-med:    #cbc6b6;
+  --ink-soft:   #969184;
+  --ink-faint:  #868273;   /* 4.7:1 on the dark paper; #6f6b5c was 3.4 */
+  --ink-ghost:  #4c4940;
+  --rule:       #3a3830;
+  --rule-light: #2a2822;
+  background: var(--paper); color: var(--ink);
+}
+
+/* Bits that hardcode the light paper colour need a hand in the dark. */
+html.dark body.paper .topbar {
+  background: rgba(22, 21, 15, 0.9);
+  border-bottom-color: rgba(240, 234, 217, 0.08);
+}
+html.dark body.paper .hero-caption {
+  background: linear-gradient(to top, rgba(22,21,15,0.9) 0%, transparent 100%);
+}
+html.dark body.paper .hero-president,
+html.dark body.paper .hero-img-wrap { background: var(--paper); }
+html.dark body.paper .plate-frame img,
+html.dark body.paper .hero-img-wrap img,
+html.dark body.paper .author-photo { filter: grayscale(35%) contrast(1.02) brightness(0.92); }
+html.dark body.paper .plate:hover .plate-frame img { filter: grayscale(0%) contrast(1.03) brightness(0.98); }
+html.dark body.paper .form-status.ok  { color: #6fbf8e; }
+html.dark body.paper .form-status.err { color: #e08a8a; }
+
+/* ── Theme toggle button (floating, bottom-right) ───────────── */
+.theme-toggle {
+  position: fixed;
+  right: 1.4rem; bottom: 1.4rem;
+  z-index: 300;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: 0.5px solid var(--ink-ghost, #ccccbb);
+  border-radius: 50%;
+  background: var(--paper, #fffff8);
+  color: var(--ink-soft, #666660);
+  font-family: var(--mono, monospace);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, transform 0.2s, background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.theme-toggle:hover { color: var(--ink, #111); border-color: var(--ink-faint, #999); transform: translateY(-2px); }
+.theme-toggle:active { transform: translateY(0); }
+
+@media print { .theme-toggle { display: none !important; } }
+
+/* ── Konami-code ink stamp ──────────────────────────────────── */
+.stamp {
+  position: fixed; top: 42%; left: 50%; z-index: 9999;
+  transform: translate(-50%, -50%) rotate(-11deg) scale(1.5);
+  opacity: 0; pointer-events: none;
+  font-family: var(--mono, monospace); color: #c23b2e;
+  border: 3px double #c23b2e; border-radius: 10px;
+  padding: 0.55rem 1.5rem 0.7rem; text-align: center;
+  background: rgba(194,59,46,0.06);
+  box-shadow: inset 0 0 0 1px rgba(194,59,46,0.2);
+  text-transform: uppercase;
+}
+html.dark .stamp { color: #e8837a; border-color: #e8837a; }
+.stamp .stamp-main { display: block; font-size: 2.3rem; font-weight: 700; letter-spacing: 0.14em; line-height: 1; }
+.stamp .stamp-sub  { display: block; font-size: 0.68rem; letter-spacing: 0.34em; margin-top: 0.45rem; }
+.stamp.show { animation: stampIn 0.45s cubic-bezier(.2,1.5,.4,1) forwards; }
+.stamp.hide { transition: opacity 0.6s ease; opacity: 0 !important; }
+@keyframes stampIn {
+  0%   { opacity: 0; transform: translate(-50%,-50%) rotate(-11deg) scale(1.7); }
+  55%  { opacity: 1; transform: translate(-50%,-50%) rotate(-11deg) scale(0.9); }
+  100% { opacity: 1; transform: translate(-50%,-50%) rotate(-11deg) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .stamp.show { animation: none; opacity: 1; transform: translate(-50%,-50%) rotate(-11deg) scale(1); }
+}
+
+/* ── Whisper: a margin note in Akshat's voice (bottom-left) ──── */
+.whisper {
+  position: fixed; left: 2.2rem; bottom: 2.2rem; z-index: 320;
+  max-width: 300px;
+  padding: 0.15rem 0 0.15rem 1.05rem;
+  border-left: 1.5px solid var(--ink, #111110);
+  background: var(--paper, #fffff8);
+  /* a soft wash of paper, not a floating card shadow */
+  box-shadow: 0 0 24px 9px var(--paper, #fffff8);
+  font-family: var(--serif, 'EB Garamond', Georgia, serif);
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: var(--ink-med, #333330);
+  text-wrap: pretty;
+  opacity: 0; transform: translateX(-10px);
+  transition: opacity 0.55s ease, transform 0.6s cubic-bezier(.2,.7,.3,1);
+  pointer-events: none;
+}
+.whisper.show { opacity: 1; transform: translateX(0); }
+@media print { .whisper { display: none !important; } }
+@media (max-width: 700px) { .whisper { left: 1.3rem; bottom: 1.3rem; max-width: 76vw; font-size: 0.94rem; } }
+
+/* ── Command palette: the index card ────────────────────────── */
+.palette-veil {
+  position: fixed; inset: 0; z-index: 400;
+  background: rgba(20, 19, 14, 0.45);
+  backdrop-filter: blur(3px);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.18s ease;
+}
+.palette-veil.open { opacity: 1; pointer-events: all; }
+.palette {
+  position: fixed; z-index: 401;
+  top: 18vh; left: 50%;
+  width: min(480px, calc(100vw - 2.4rem));
+  transform: translateX(-50%) translateY(6px);
+  background: var(--paper, #fffff8);
+  border: 1px solid var(--ink, #111110);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.25);
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+.palette.open { opacity: 1; pointer-events: all; transform: translateX(-50%) translateY(0); }
+.palette-head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  padding: 0.55rem 0.9rem 0;
+  font-family: var(--mono, monospace); font-size: 0.56rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--ink-faint, #999990);
+}
+.palette input {
+  width: 100%; background: transparent; border: none; outline: none;
+  border-bottom: 0.5px solid var(--rule, #d0d0c0);
+  padding: 0.65rem 0.9rem 0.7rem;
+  font-family: var(--serif, Georgia, serif); font-style: italic;
+  font-size: 1.05rem; color: var(--ink, #111110);
+}
+.palette input::placeholder { color: var(--ink-ghost, #ccccbb); font-style: italic; }
+.palette-list { max-height: 300px; overflow-y: auto; padding: 0.35rem 0 0.45rem; }
+.palette-item {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding: 0.42rem 0.9rem;
+  cursor: pointer;
+  border-left: 2px solid transparent;
+}
+.palette-item .pi-name { font-family: var(--serif, Georgia, serif); font-size: 0.97rem; color: var(--ink, #111110); }
+.palette-item .pi-note { font-family: var(--mono, monospace); font-size: 0.58rem; letter-spacing: 0.05em; color: var(--ink-faint, #999990); white-space: nowrap; }
+.palette-item.active, .palette-item:hover {
+  border-left-color: var(--ink, #111110);
+  background: rgba(0,0,0,0.035);
+}
+html.dark .palette-item.active, html.dark .palette-item:hover { background: rgba(255,255,255,0.05); }
+.palette-empty {
+  font-family: var(--serif, Georgia, serif); font-style: italic;
+  font-size: 0.9rem; color: var(--ink-soft, #666660);
+  padding: 0.8rem 0.9rem 0.9rem;
+}
+@media print { .palette, .palette-veil { display: none !important; } }
+
+/* ── Cite-on-select chip ────────────────────────────────────── */
+.cite-chip {
+  position: fixed; z-index: 380;
+  font-family: var(--mono, monospace); font-size: 0.6rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink, #111110); background: var(--paper, #fffff8);
+  border: 0.5px solid var(--ink-faint, #999990);
+  padding: 0.28rem 0.6rem; cursor: pointer;
+  box-shadow: 0 0 14px 4px var(--paper, #fffff8);
+  opacity: 0; transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  pointer-events: none;
+}
+.cite-chip.show { opacity: 1; transform: translateY(0); pointer-events: all; }
+.cite-chip:hover { border-color: var(--ink, #111110); }
+@media print { .cite-chip { display: none !important; } }
+
+/* ── Soft page transitions ──────────────────────────────────── */
+html.page-fade body { transition: opacity 0.15s ease; }
+html.page-fade.leaving body { opacity: 0; }
+
+/* ── Poke bubble (clicking the author photo) ────────────────── */
+.poke-bubble {
+  position: fixed; z-index: 320;
+  font-family: var(--serif, 'EB Garamond', Georgia, serif); font-style: italic;
+  font-size: 0.9rem; letter-spacing: 0.01em;
+  color: var(--ink, #111110); background: var(--paper, #fffff8);
+  border: 0.5px solid var(--ink-faint, #999990);
+  padding: 0.24rem 0.72rem; white-space: nowrap;
+  box-shadow: 0 0 16px 5px var(--paper, #fffff8);
+  opacity: 0; transition: opacity 0.22s ease;
+  pointer-events: none;
+}
+.poke-bubble.show { opacity: 1; }
+.poke-bubble::after {
+  content: ""; position: absolute; left: 50%; bottom: -4.5px;
+  width: 8px; height: 8px; background: var(--paper, #fffff8);
+  border-right: 0.5px solid var(--ink-faint, #999990);
+  border-bottom: 0.5px solid var(--ink-faint, #999990);
+  transform: translateX(-50%) rotate(45deg);
+}
+@keyframes pokeWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-7deg); }
+  75% { transform: rotate(7deg); }
+}
+.poke { animation: pokeWiggle 0.4s ease; }
+
+/* ── Nav overlay laid out in two columns ────────────────────────
+   With eleven destinations a single centred column overran the
+   viewport and clipped "Home". Six rows splits it 6 + 5, which stays
+   on screen without stranding one link alone in a third column. */
+.nav-overlay .nav-cols {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(6, auto);
+  column-gap: clamp(2rem, 6vw, 4.5rem);
+  row-gap: 0.1rem;
+}
+/* ── The topbar while the nav is open ───────────────────────────
+   The topbar sits above the overlay (z 200 vs 190), so on the light
+   pages it stayed a bright strip cutting across the dark menu. Let
+   the overlay show through and light up the logo and hamburger to
+   match the links underneath. Each page sets .topbar in its own
+   inline <style>, which loads after this file, so these selectors
+   carry an extra class to win on specificity rather than order. */
+body.nav-open .topbar {
+  background: transparent;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+body.nav-open .topbar-logo { color: rgba(251, 249, 242, 0.5); }
+body.nav-open .topbar-logo:hover { color: rgba(251, 249, 242, 0.95); }
+body.nav-open .hamburger span { background: rgba(251, 249, 242, 0.6); }
+body.nav-open .hamburger:hover span { background: rgba(251, 249, 242, 0.95); }
+
+@media (max-width: 560px) {
+  .nav-overlay .nav-cols { column-gap: 1.5rem; }
+}
+
+/* ── Back-to-top button (floating, above the theme toggle) ───── */
+.to-top {
+  position: fixed; right: 1.4rem; bottom: calc(1.4rem + 48px);
+  z-index: 300; width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  border: 0.5px solid var(--ink-ghost, #ccccbb); border-radius: 50%;
+  background: var(--paper, #fffff8); color: var(--ink-soft, #666660);
+  font-family: var(--mono, monospace); font-size: 1rem; line-height: 1; cursor: pointer;
+  opacity: 0; transform: translateY(8px); pointer-events: none;
+  transition: color 0.2s, border-color 0.2s, transform 0.3s ease, opacity 0.3s ease, background 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.to-top.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.to-top:hover { color: var(--ink, #111); border-color: var(--ink-faint, #999); transform: translateY(-2px); }
+.to-top:active { transform: translateY(0); }
+@media print { .to-top { display: none !important; } }
+
+/* ── Contents scrollspy: the section you are reading ─────────── */
+.toc-list a.here { color: var(--accent, #7a4a24); }
+
+/* ── Section deep-link (a pilcrow that copies a link) ────────── */
+.sec-anchor {
+  font-family: var(--mono, monospace); font-size: 0.62em;
+  color: var(--ink-ghost, #ccccbb); text-decoration: none;
+  margin-left: 0.5rem; vertical-align: 0.12em;
+  opacity: 0; transition: opacity 0.2s ease, color 0.2s ease;
+}
+.section-head:hover .sec-anchor, .sec-anchor:focus { opacity: 1; outline: none; }
+.sec-anchor:hover { color: var(--accent, #7a4a24); }
+@media print { .sec-anchor { display: none !important; } }
+
+/* ── Confetti burst ─────────────────────────────────────────── */
+.confetti-layer { position: fixed; inset: 0; pointer-events: none; z-index: 500; overflow: hidden; }
+.confetti-bit {
+  position: absolute; display: block; border-radius: 1px;
+  transform: translate(-50%, -50%);
+  animation: confettiFly 1.2s cubic-bezier(0.15, 0.6, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+@keyframes confettiFly {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); opacity: 1; }
+  12%  { opacity: 1; }
+  100% { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy) + 280px)) rotate(var(--rot)); opacity: 0; }
+}
+@media print { .confetti-layer { display: none !important; } }
+
+/* ── The clickable name gives a little pop ──────────────────── */
+.name-pop { animation: namePop 0.5s cubic-bezier(0.34, 1.4, 0.5, 1); }
+@keyframes namePop {
+  0%   { transform: none; }
+  35%  { transform: scale(1.05) rotate(-1.2deg); }
+  100% { transform: none; }
+}
+
+/* ── "Surprise me" menu link, in the accent so it stands out ── */
+.nav-surprise { color: #e7b866 !important; font-style: italic !important; letter-spacing: 0.01em; }
+.nav-surprise:hover { opacity: 0.85; }
+
+/* ── Keyboard focus: a clear, on-brand ring for anyone tabbing ──
+   Mouse clicks stay ring-free (:focus-visible), so this only shows
+   for keyboard and assistive-tech users, where it matters. */
+:focus-visible {
+  outline: 2px solid var(--accent, #7a4a24);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+/* On the dark nav overlay, a light ring reads better than the accent. */
+.nav-overlay a:focus-visible { outline-color: rgba(255,255,255,0.85); }
+
+/* ── Typographic gravitas: set the serif text like a book ───────
+   Old-style (text) figures sit numbers on the baseline the way a
+   printed page does, with common ligatures and legibility
+   rendering. EB Garamond carries these; Inconsolata ignores the
+   figure feature, so monospaced labels stay lining. Stats and
+   other lining/tabular contexts opt back in on their own. */
+body {
+  font-variant-numeric: oldstyle-nums;
+  font-variant-ligatures: common-ligatures contextual;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── No sideways scroll ─────────────────────────────────────────
+   Full-bleed strips (the photo marquee) measure 100vw, which is a
+   hair wider than the content once a scrollbar is present. clip
+   trims that stray horizontal overflow without making a scroll
+   container, so position:fixed and anchor jumps are unaffected. */
+html, body { overflow-x: clip; }
+
+/* ── Shared photo set for the detail pages ──────────────────────
+   A simple responsive figure grid. Uses each page's own tokens
+   via var() with fallbacks, so it blends into any of them. */
+.pic-set { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1rem; margin: 1.7rem 0 0.6rem; }
+.pic-set.one { grid-template-columns: minmax(0, 460px); }
+.pic-set figure { margin: 0; }
+.pic-set img { width: 100%; height: auto; display: block; border: 0.5px solid var(--rule-light, #e4e4d8); background: var(--rule-light, #eee); transition: box-shadow 0.4s ease; }
+/* A little life on hover: the plate lifts and casts a soft shadow. */
+@media (prefers-reduced-motion: no-preference) {
+  .pic-set figure { transition: transform 0.38s cubic-bezier(.2,.7,.2,1); }
+  .pic-set figure:hover { transform: translateY(-4px); }
+}
+.pic-set figure:hover img { box-shadow: 0 16px 34px -14px rgba(20,18,10,0.34); }
+.pic-set figcaption { font-family: var(--mono, 'Inconsolata', monospace); font-size: 0.58rem; letter-spacing: 0.05em; color: var(--ink-faint, #777); margin-top: 0.5rem; line-height: 1.55; }
+.pic-set figcaption b { color: var(--ink-med, #333); font-weight: 600; letter-spacing: 0.02em; }
+.pic-set figcaption a { color: inherit; }
+
+/* A tidy uniform variant of the photo set: equal cells, cropped to fit. */
+.pic-set.tidy { grid-template-columns: repeat(3, 1fr); }
+.pic-set.tidy img { aspect-ratio: 4 / 3; object-fit: cover; }
+@media (max-width: 640px) { .pic-set.tidy { grid-template-columns: 1fr 1fr; } }

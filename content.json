@@ -1,0 +1,422 @@
+{
+  "name": "Parikshitsinh Jadeja",
+  "email": "parikshitsinh.jadeja@masason.org",
+  "experience": [
+    {
+      "title": "Researcher | AIChem",
+      "org": "Indian Institute of Science (IISc)",
+      "date": "Feb 2026 - Present",
+      "description": "Developing machine learning models to predict catalytic activity, thermodynamic stability, and reaction kinetics. Focused on structure property relationships, descriptor engineering, and integration with computational chemistry workflows to accelerate data driven catalyst discovery. Conducting under the guidance of Prof. Chinmoy Ranjan from Indian Institute of Science (IISc), Bangalore."
+    },
+    {
+      "title": "Researcher | Mantis AI X MIT CSAIL",
+      "org": "MIT Computer Science and Artificial Intelligence Laboratory (CSAIL) · Internship",
+      "date": "Apr 2026 - Present",
+      "description": "Built a closed loop AI engine for autonomous computational biology, where Mantis serves as the reasoning and planning layer over AlphaCell as the simulation engine. The system enables an end to end workflow from generating biological hypotheses and simulating perturbations to interpreting mechanisms and prioritizing the most promising experiments."
+    },
+    {
+      "title": "Technical Head & Founding Member",
+      "org": "The Project Nirvana · Part-time",
+      "date": "Apr 2026 - Present",
+      "description": "\"Building the education revolution for India and the world\". A future where students innovate instead of memorize, are defined by their ideas rather than a single exam, and have equal opportunities to build inventions regardless of their financial background. \"That is Nirvana.\"\nAs Technical Head, I lead Nirvana's software, hardware, electronics, and web development initiatives while mentoring 100+ students and guiding both students and mentors in building real world engineering and innovation projects."
+    },
+    {
+      "title": "IT & Innovation Student President (Student Council 2026-27)",
+      "org": "Navrachana International School Vadodara",
+      "date": "Jun 2026 - Present",
+      "description": "Leading IT and innovation initiatives at Navrachana International School, Vadodara (NISV) CBSE, overseeing technical operations and managing technology for major school events as Tech Head. Mentoring students while sharing weekly STEM opportunities, scholarships, research programs, and competitions with 800+ students, fostering a stronger culture of innovation and participation across the school."
+    },
+    {
+      "title": "CBSE Representative Student President (Student Council 2025-26)",
+      "org": "Navrachana International School Vadodara",
+      "date": "Jun 2025 - Jun 2026",
+      "description": "Selected as a Student Council Member to represent the CBSE section, fostering communication between students and school leadership while contributing to leadership initiatives, student engagement activities, and school wide events."
+    },
+    {
+      "title": "Researcher | AI/ML",
+      "org": "The Maharaja Sayajirao University of Baroda",
+      "date": "Feb 2026 - Present",
+      "description": "Working on machine learning models with mathematics, application in vanet, manet. Smart healthcare, smart cities, smart transportation with Dr. Neetu Sharma from the Maharaja Sayajirao University of Baroda."
+    },
+    {
+      "title": "Researcher (2026-27) Junior Academy Member",
+      "org": "The New York Academy of Sciences",
+      "date": "Sep 2026 - Present",
+      "description": "Working on brain tech research with people from around the world\nAdmitted into the Junior Academy with a 6% international acceptance rate. It introduces exceptional students to an online community where they gain access to the best STEM resources and work together to solve real world problems"
+    },
+    {
+      "title": "Biotech Researcher & Member",
+      "org": "E0 Labs",
+      "date": "Sep 2026 - Present",
+      "description": "Selected as an official member for E0 Labs cohort 1...\nwill be building cool stuff with cool people : )"
+    },
+    {
+      "title": "Founder",
+      "org": "Operation Jal Rakshak",
+      "date": "Sep 2025 - Present",
+      "description": "Cleaning water bodies\n->pilot tested the innovation Eutrobot on 3 lakes, purifiying and monitoring the water\n->handled analysis of water quality of three major rivers : Narmada, Ganga and Kshipra, using Eutrobot\n->calculated and deduced the purification uptake algorithm for lemna minor in polluted water"
+    },
+    {
+      "title": "Research Mentor",
+      "org": "National Student Research Institution · Part-time",
+      "date": "Jan 2026 - Present",
+      "description": "Spearheaded a global movement in student research, mentoring 19,000+ aspiring researchers from around the world in scientific inquiry and publication ready manuscript development, earning recognition as one of the youngest and most impactful research mentors in the student innovation ecosystem."
+    },
+    {
+      "title": "Giftedtalented.com 20 Under 20 Honoree",
+      "org": "GiftedTalented.com",
+      "date": "May 2026 - Present",
+      "description": "One of 20 teens selected worldwide for the GT 20 Under 20 Class of 2026 from over 700 nominations (2.8% acceptance rate). Recognized for innovation, research, leadership, and real world impact through work in robotics, artificial intelligence, environmental technology, and social entrepreneurship. As a GT 20 Under 20 Honoree, I will receive a minimum $1,000 scholarship, a featured profile and interview, visibility opportunities with leading universities, research labs, and venture leaders, invitations to exclusive events and showcases, lifetime membership in the GT 20 Under 20 alumni network, access to annual retreats, and ongoing mentorship and support from the global GiftedTalented.com community."
+    },
+    {
+      "title": "Masason Foundation Scholar",
+      "org": "SoftBank Group Corp.",
+      "date": "Jul 2026 - Present",
+      "description": "Selected as one of 33 exceptional young innovators and researchers worldwide by the Masason Foundation, founded by SoftBank CEO Masayoshi Son and Nobel Laureate Prof. Shinya Yamanaka. Will be awarded financial support to pursue advanced research, innovation, entrepreneurship, and higher education, recognizing demonstrated potential to create meaningful global impact through science and technology."
+    },
+    {
+      "title": "Researcher | Climate Leaders Fellowship",
+      "org": "Stanford University · Part-time",
+      "date": "Jan 2026 - Apr 2026",
+      "description": "Conducted research on sustainable bioremediation systems for water body pollution treatment using rhizofiltration, alongside plant-based remediation techniques for soil degradation mitigation and ecological restoration."
+    },
+    {
+      "title": "Researcher | Railway Engineering",
+      "org": "Lemelson-MIT Program",
+      "date": "Sep 2025 - Dec 2025",
+      "description": "Participated in the highly selective Rail Innovation in Action program by Lemelson-MIT Program and CSRM, selected among 180 students worldwide and one of only two students from India. Collaborated with Stephanie Couch, Executive Director of the Lemelson-MIT Program, and Christopher Rogers, Professor and engineering researcher, to develop sustainable rail innovation solutions integrating advanced engineering concepts, applied research methodologies, and future-focused transportation systems."
+    },
+    {
+      "title": "Researcher (2025-26) Junior Academy Member",
+      "org": "The New York Academy of Sciences",
+      "date": "Aug 2025 - Nov 2025",
+      "description": "Admitted into the Junior Academy with a 6% international acceptance rate. It introduces exceptional students to an online community where they gain access to the best STEM resources and work together to solve real world problems, where I Researched on Solar Energy Harvesting & Sustainable Engineering with a High School Team from Ethiopia"
+    },
+    {
+      "title": "Hardware & Software Programming Lead",
+      "org": "Team InnoVizards · Self-employed",
+      "date": "Oct 2024 - Sep 2025",
+      "description": "[Developed Eutrobot: The World's First Bioremediation Robot] -1st Place : Junior Makeathon 2025, India's Largest Makeathon @IIT Madras\n-1st Place : Student Science Model Competition @ Institute for Plasma Research Gandhinagar NSD 2025\n-Qualified WRO Virtual Championship\n-1st Place and Gold Medal : World Robot Olympiad Regional Championship Ahmedabad 2025\n-7th Place Nationally @ World Robot Olympiad National Championship Hyderabad 2025"
+    }
+  ],
+  "projects": [
+    {
+      "slug": "eutrobot",
+      "title": "EutroBot",
+      "date": "October 2024 — present",
+      "field": "Robotics · Microbiology · Water restoration",
+      "intro": "An autonomous phytoremediation robot for restoring polluted water bodies.",
+      "text": "EutroBot combines robotics, artificial intelligence, IoT, and microbiology to address contamination below the water’s surface. Across four generations of prototypes, the project explores plant-based remediation as part of a water restoration system. Its development has also led to Operation Jal Rakshak, a nationwide initiative.",
+      "extra": "The project was a national finalist at SJWP India 3.0, placed seventh nationally at WRO 2025, and received second prize in the Story Behind My Tech category at STEMXPLORE 2026. A research paper on EutroBot was accepted for poster presentation at ICWS 2026, IIT Jodhpur.",
+      "url": "https://github.com/nobrainerparikshit/Eutrobot_Team_InnoVizards",
+      "graphic": "assets/gallery/EUTROBOT.jpg"
+    },
+    {
+      "slug": "vaani-2",
+      "title": "VAANI 2.0",
+      "date": "June 2026 — present",
+      "field": "Machine learning · Acoustic biomarkers",
+      "intro": "Exploring Parkinsonian speech patterns through voice analysis.",
+      "text": "VAANI 2.0 develops the original ESP32 prototype into a full-stack web application. The published framework extracts 40 MFCC means and 40 MFCC standard deviations using Librosa, then uses a Random Forest classifier to investigate potential Parkinsonian speech patterns. The application includes interactive biomarker visualization, analysis, and downloadable reports.",
+      "extra": "Awarded second place at LingHacks VII in June 2026, with a ₹5,000 prize. This is a research screening prototype; clinical validation has not been established in the supplied project materials.",
+      "url": "https://github.com/nobrainerparikshit/-VAANI-2.0",
+      "graphic": "assets/gallery/VAANI2.0.png"
+    },
+    {
+      "slug": "vaani",
+      "title": "VAANI 1.0",
+      "date": "October 2025 — May 2026",
+      "field": "TinyML · ESP32 · Signal processing",
+      "intro": "Investigating neurological voice biomarkers on an embedded device.",
+      "text": "The original VAANI prototype combined robotics and embedded machine learning on an ESP32. Development used ALS and Parkinson’s voice data from Synapse VOC-ALS and KaggleHub to explore onboard analysis and affordable voice-based screening.",
+      "extra": "This edge-computing prototype informed VAANI 2.0. It is a research system, not a clinically validated diagnostic device.",
+      "url": "",
+      "graphic": "assets/gallery/VAANI1.0.png"
+    },
+    {
+      "slug": "ecocredit",
+      "title": "EcoCredit",
+      "date": "October 2024 — October 2025",
+      "field": "IoT · Recycling · Behavioural design",
+      "intro": "Making recycling rewarding through an IoT-enabled credit system.",
+      "text": "EcoCredit rewards recycling with virtual credits, exploring how incentives can increase participation in sustainable waste management. The robotic recycling system connects a physical recycling action to a digital reward.",
+      "extra": "The project won first place at KIIT IDEATHON 2.0 in June 2025 among more than 300 participants.",
+      "url": "",
+      "graphic": "assets/gallery/ECOCREDIT.jpg"
+    }
+  ],
+  "volunteering": [
+    {
+      "title": "Paper Reviewer",
+      "org": "SANKET IIT Bombay 2026 Conference",
+      "date": "September 2026 — present",
+      "description": "Invited to serve as a peer reviewer for SANKET IIT Bombay 2026 Conference, in collaboration with IIT Kanpur."
+    },
+    {
+      "title": "Dil Se",
+      "org": "Navrachana International School Vadodara",
+      "date": "Nov 2024 - Jan 2026",
+      "description": "As part of my school's non profit initiative 'Dil Se', I contributed to understanding and supporting physically and mentally disabled individuals. My role involved researching the challenges they face, brainstorming solutions to improve their lives, and helping create a joyful experience for them. I also designed the official logo and developed digital invitations to raise awareness and attract sponsorships. One of the most inspiring moments was witnessing students at the orphanage preparing for board exams despite having no hands or eyes. This experience taught me resilience, empathy, and the power of inclusive action."
+    },
+    {
+      "title": "President of Robotics Club | Student Mentor",
+      "org": "Navrachana International School Vadodara",
+      "date": "Jun 2025 - Jun 2026",
+      "description": "Mentored Fellow Juniors, Helped more than 30+ Students. Taught Robotics, Research, STEM, AI..."
+    },
+    {
+      "title": "Ambassador",
+      "org": "National Foundation for Cancer Research (NFCR)",
+      "date": "May 2025 - May 2026",
+      "description": "Raised funds and promoted awareness to support cancer research and patient care through advocacy campaigns and community outreach initiatives."
+    },
+    {
+      "title": "Ambassador & Researcher",
+      "org": "International Astronomy and Astrophysics Competition",
+      "date": "Jun 2025 - Jun 2026",
+      "description": ""
+    }
+  ],
+  "awards": [
+    {
+      "title": "AIR 33 & Band A Honour : IISc Young Scientist Challenge 2026",
+      "meta": "Issued by SciAstra & IISc Bangalore · Sep 2026",
+      "description": "Secured All India Rank 33 in IISc Young Scientist Challenge 2026, a national science competition for Classes 9 to 12 and droppers conducted in association with the Biology Club (Naturalists) of the Indian Institute of Science (IISc), Bengaluru. That included challenging problems involving Mathematics (high-level logical and proof based application of algebra (quadratic equations, arithmetic progressions), coordinate geometry, trigonometry, circles/areas, and probability/statistics, focusing on pattern recognition and conceptual derivations rather than rote calculations), physics (deep conceptual application of  optics reflection, refraction, human eye phenomena, electricity circuits, heating effects, and magnetic fields/induction, extended with basic vector and mathematical rigor), chemistry (advanced analytical problems on chemical reactions, redox processes, pH and salts, metallurgy, and carbon compounds (functional groups, esterification, micelles), integrated with foundational mole concept and periodic trends). Scored 77/84 (22 Questions answered correctly out of 24)"
+    },
+    {
+      "title": "Accepted Research Paper and Invited for Poster Presentation : VENICE 2026",
+      "meta": "Issued by VENICE 2026 · Sep 2026",
+      "description": "My research abstract, “Eutrobot: an autonomous unmanned surface vehicle integrating real-time environmental sensing, AI-assisted algal detection, and phytoremediation for scalable freshwater purification,” has been accepted for poster presentation at VENICE 2026."
+    },
+    {
+      "title": "Accepted Research Paper and Invited for Poster Presentation: 38th World Conference on Neurology 2026",
+      "meta": "Issued by 38th World Conference on  Neurology · Sep 2026",
+      "description": "My research abstract, “VAANI 2.0: An AI-Powered Vocal Biomarker Framework for Preliminary Parkinson’s Disease Risk Screening”, has been accepted for Poster Presentation at the 38th World Conference on Neurology, scheduled for November 24–25, 2026, in Rome, Italy, under the theme “Neurology in the Age of AI: From Insight to Innovation.”"
+    },
+    {
+      "title": "Accepted Research Paper and Invited for Poster Presentation: INBC 2026",
+      "meta": "Issued by 13th Edition of International Conference on Neurology and Brain Disorders (INBC) 2026 · Sep 2026",
+      "description": "My research abstract, “VAANI 2.0: An AI-Powered Vocal Biomarker Framework for Preliminary Parkinson’s Disease Risk Screening” has been accepted for poster presentation at 13th Edition of International Conference on Neurology and Brain Disorders (INBC) 2026."
+    },
+    {
+      "title": "Selected among the Top 25 entries in Hidden Prompt: National AI Vulnerability Challenge 2026",
+      "meta": "Issued by Xavier University · Sep 2026",
+      "description": "Selected among the Top 25 entries in Hidden Prompt: National AI Vulnerability Challenge 2026, organized by Xavier University."
+    },
+    {
+      "title": "Won the \"Principal's Recommendation for Technical Know-How\" Award",
+      "meta": "Issued by Navrachana International School Vadodara · Sep 2026",
+      "description": "Won the \"Principal's Recommendation for Technical Know-How\" Award for SHARKMINDS 2026, Organized by Navrachana International School Vadodara, Presented VaultEt: A Smart Wallet..."
+    },
+    {
+      "title": "Accepted Research Paper and Invited for Poster Presentation : ICWS 2026 - IIT Jodhpur",
+      "meta": "Issued by Indian Institute of Technology, Jodhpur · Aug 2026",
+      "description": "Research paper on Eutrobot selected for presentation at ICWS 2026, an international conference on water sustainability organized by IIT Jodhpur’s Department of Environmental and Sustainability Engineering. Selected amongst phD, graduate and undergraduate students as a high schooler!"
+    },
+    {
+      "title": "National Automobile Olympiad / Selected for RAO",
+      "meta": "Issued by National Automobile Olympiad & CBSE · Aug 2026",
+      "description": "Cleared the first round for the NAO, will be giving the regional round..\nscored 35/35"
+    },
+    {
+      "title": "ICSC 2026 | Cleared Qualification Round",
+      "meta": "Issued by International Computer Science Competition · Jul 2026",
+      "description": "Successfully advanced through the International Qualification Stage to the Pre Final Round by solving a rigorous set of algorithmic, mathematical, and logical reasoning challenges. Demonstrated proficiency in C++ programming, competitive programming, advanced mathematics, and analytical problem solving under timed conditions."
+    },
+    {
+      "title": "Associate Member of the Masason Foundation",
+      "meta": "Issued by Masason Foundation · Jun 2026",
+      "description": "Masason foundation Scholar, reported acceptance rate <1%, selected through a rigorous international screening process for exceptional young innovators and researchers, 33 selected worldwide for 10th generation."
+    },
+    {
+      "title": "Received a Letter of Recommendation from Principal Kashmira Jaiswal, Navrachana International School Vadodara CBSE",
+      "meta": "Issued by Navrachana International School Vadodara CBSE · Jun 2026",
+      "description": "Nominated as the sole student from Navrachana International School for the Pradhan Mantri Rashtriya Bal Puraskar (PMRBP) 2026, recognizing exceptional achievements in innovation, leadership, and societal impact."
+    },
+    {
+      "title": "Won 2nd Place at LingHacks VII Computational Linguistics Hackathon",
+      "meta": "Issued by LingHacks · Jun 2026",
+      "description": "Awarded 2nd Prize for developing VAANI 2.0, an AI powered platform for the early screening of Parkinson's disease, receiving a ₹5,000 cash prize.\nEvaluated by an international panel of AI researchers and industry leaders from organizations including Google, TikTok, Blue Origin, Carnegie Mellon University, IGDTUW, Nexora, and Pulse."
+    },
+    {
+      "title": "GiftedTalented.com 20 Under 20 Honoree",
+      "meta": "Issued by GiftedTalented.com · May 2026",
+      "description": "Awarded a scholarship of over $1,000 after being selected for the GT 20 Under 20 Cohort from 700+ global nominations (approximately 2.8% acceptance rate). Recognized for excellence in innovation, leadership, and creating real-world impact through technology-driven projects and initiatives."
+    },
+    {
+      "title": "National Finalist for SJWP India 3.0",
+      "meta": "Issued by IIT Madras & SJWP India Committee · Apr 2026",
+      "description": "Selected as a Top 25 Finalist through three rigorous evaluation rounds in the Stockholm Junior Water Prize (SJWP) India, a competition widely regarded as one of the world's most prestigious honors for high school water research.\nInvited to IIT Madras to present Eutrobot, my autonomous phytoremediation system for restoring polluted water bodies, before researchers, faculty, and industry experts."
+    },
+    {
+      "title": "2nd Prize · STEMXPLORE 2026, IISc Bangalore",
+      "meta": "Issued by IISc Bangalore & STEMonster · Mar 2026",
+      "description": "Awarded 2nd Prize in the Story Behind My Tech category, ranking 2nd among 100+ participating projects.\nInvited as a speaker at the Indian Institute of Science (IISc) Bangalore to present Eutrobot, my autonomous phytoremediation system for restoring polluted water bodies.\nVisited multiple IISc research laboratories and academic departments, gaining exposure to cutting edge research across diverse fields and engaging with researchers and faculty on advanced scientific and engineering innovations."
+    },
+    {
+      "title": "Selected For International Innovation Round For Conrad Challenge 2026",
+      "meta": "Issued by Conrad Challenge 2026 · Jan 2026",
+      "description": "Selected for the International Innovation Round of the Conrad Challenge 2026 after successfully advancing through the Activation Stage.\nAwarded a $500 project scholarship in recognition of the innovation's potential and continued development."
+    },
+    {
+      "title": "Semifinalist · International Research Olympiad 2026",
+      "meta": "Issued by International Research Olympiad · Jan 2026",
+      "description": "Ranked among the Top 200 internationally in the International Research Olympiad (IRO) 2026, selected from 2,000+ participants worldwide.\nSuccessfully solved advanced problems spanning college level mathematics, including number theory, mathematical reasoning, scientific research methodology, and interdisciplinary STEM concepts."
+    },
+    {
+      "title": "Received Letters of Recommendation from Mr. Chandan Kumar and Mr. Abhigyan Gautam in recognition of exceptional skills and academic excellence in Mathematics and Physics.",
+      "meta": "Issued by Abhigyan Gurukal · Nov 2025",
+      "description": ""
+    },
+    {
+      "title": "Selected For International Round For Future Port Youth Award",
+      "meta": "Nov 2025",
+      "description": "Selected as one of the few projects from India for the Future Port Youth Award 2025, recognizing innovative solutions with the potential to address global maritime and sustainability challenges."
+    },
+    {
+      "title": "The Knowledge Society Virtual Program Full Ride Scholar",
+      "meta": "Sep 2025",
+      "description": "Activities and societies: Presentation skills, Robotics & AI.\nAccepted and participated, as a full ride scholar (~$6000), into the TKS virtual program"
+    },
+    {
+      "title": "World Robot Olympiad '25, 7th Nationally",
+      "meta": "Issued by WRO India · Sep 2025",
+      "description": "Achieved 7th Place Nationally in the World Robot Olympiad (WRO) Future Innovators National Championship.\nPresented Eutrobot to an audience of professors, researchers, PhD scholars, medical professionals, industry experts, startup founders, CEOs, venture investors, and representatives from Google, receiving feedback from leaders across academia and industry."
+    },
+    {
+      "title": "Kalinga Institute Of Industrial Technology IDEATHON 2025 3.0",
+      "meta": "Issued by Kalinga Institute Of Industrial Technology · Aug 2025",
+      "description": "Secured 2nd Runners Up Place among 500+ participants at a National Innovation Competition.\nInvited to present as a speaker at KIIT, where I showcased my innovation to students, faculty, and industry professionals.\nReceived a fully funded invitation, including travel and accommodation, to attend and present at the event."
+    },
+    {
+      "title": "World Robot Olympiad '25, Cleared Regionals with 1st Rank",
+      "meta": "Issued by WRO India · Aug 2025",
+      "description": "Secured 1st Place (Regional Champion) in the Future Innovators, Senior Category at the World Robot Olympiad (WRO) Regional Championship.\nPresented my innovation to students, educators, industry experts, and competition judges, showcasing its technical design and real-world impact."
+    },
+    {
+      "title": "Admitted to the Georgetown Precollege Online Program with US $2000 Scholarship",
+      "meta": "Issued by Georgetown University · Jul 2025",
+      "description": "I was admitted to the Georgetown Precollege Online Program and awarded a US $2000 merit scholarship. Through the university level course, College Credit Cybersecurity: Protecting Our Digital Future."
+    },
+    {
+      "title": "Admitted to the Rice University Precollege Program with US $900 Scholarship",
+      "meta": "Issued by Rice University · Jul 2025",
+      "description": "I was admitted to the Rice University Precollege Program and awarded a US $900 merit scholarship. Through the university level course, Genome Engineering: Changing the Future of Medicine."
+    },
+    {
+      "title": "Admitted to the Dartmouth Precollege Online Program with US $900 Scholarship",
+      "meta": "Issued by Dartmouth College · Jun 2025",
+      "description": "I was admitted to the Dartmouth Precollege Online Program and awarded a US $900 merit scholarship. Through the university level course, Biology: Transforming the Future of Science."
+    },
+    {
+      "title": "Kalinga Institute Of Industrial Technology IDEATHON 2025 2.0 Winner",
+      "meta": "Issued by Kalinga Institute Of Industrial Technology · Jun 2025",
+      "description": "Secured 1st Place among 300+ participants at IDEATHON 2.0 2025.\nDesigned and developed an IoT enabled robotic recycling system that incentivizes sustainable waste management by rewarding users based on the quantity of waste they recycle."
+    },
+    {
+      "title": "Institute For Plasma Research National Science Day 2025 Winner",
+      "meta": "Issued by Institute For Plasma Research, Gandhinagar · Feb 2025",
+      "description": "Awarded 1st Place among 50 scientific innovation projects at the National Science Day, IPR 2025.\nVisited one of India's leading plasma research facilities, where I explored cutting edge innovations in high voltage systems, plasma confinement using magnetic fields, and advanced plasma research, while interacting with researchers and gaining insight into ongoing scientific developments."
+    },
+    {
+      "title": "1st Prize · Junior Make-a-Thon 2025",
+      "meta": "Issued by IIT Madras & Creya Learning · Jan 2025",
+      "description": "Selected as one of the Top 24 Finalists at IIT Madras from over 1,000 participating teams.\nDesigned, built, and demonstrated a fully functional prototype in under 8 hours, presenting it to IIT Madras professors and an expert judging panel.\nAwarded 1st Prize in the Senior Category of India's Largest K–12 Hackathon, receiving a ₹30,000 cash prize."
+    },
+    {
+      "title": "Felicitated By Rajput Samaj Association",
+      "meta": "Issued by Rajput Samaj Association",
+      "description": "For Academic Excellence & innovative Projects In Science, Mathematics, Technology, & Engineering For Three Consecutive Years\n2023-24\n2024-25\n2025-26"
+    },
+    {
+      "title": "Received A Letter Of Appreciation By Indigo Airlines (Project Eutrobot)",
+      "meta": "Issued by IndiGo",
+      "description": ""
+    },
+    {
+      "title": "Received A Letter Of Appreciation By The Ocean Cleanup Project (Project Eutrobot)",
+      "meta": "Issued by The Ocean Cleanup Project",
+      "description": ""
+    }
+  ],
+  "headline": "Student, Researcher, Technologist, Educationist",
+  "scholarships": "Masason Foundation Scholar · GiftedTalented.com GT 20 Under 20 Scholar",
+  "publications": [
+    {
+      "id": "vaani-publication",
+      "title": "VAANI 2.0: An AI-Powered Vocal Biomarker Framework for Preliminary Parkinson’s Disease Risk Screening",
+      "venue": "Figshare",
+      "date": "19 September 2026",
+      "url": "https://doi.org/10.6084/m9.figshare.33941416",
+      "text": "A proof-of-concept framework combining browser-based voice recording, Librosa acoustic feature extraction, and Random Forest classification. Forty MFCC means and forty MFCC standard deviations form an 80-dimensional feature representation. The study evaluates preliminary Parkinson’s disease risk screening from short voice recordings.",
+      "results": "In the reported evaluation of 73 recordings, with 15 reserved for testing, accuracy was 80.0%, precision 80.0%, sensitivity 66.7%, F1-score 72.7%, and ROC–AUC 88.9%. The small dataset and test cohort limit generalisation. The work is positioned as preliminary screening and decision support, rather than diagnosis.",
+      "project": "vaani-2.html"
+    },
+    {
+      "id": "eutrobot-publication",
+      "title": "Eutrobot: An Autonomous Unmanned Surface Vehicle Integrating Real Time Environmental Sensing, AI Assisted Algal Detection, and Phytoremediation for Scalable Freshwater Purification",
+      "venue": "Figshare",
+      "date": "10 September 2026",
+      "url": "https://doi.org/10.6084/m9.figshare.33546820",
+      "text": "An autonomous surface vehicle combining environmental sensing, GPS-guided navigation, AI-assisted algal detection, and adaptive phytoremediation. The study describes monitoring 17 water-quality parameters, an onboard web server, a Lemna minor biomass deployment algorithm, and a HuskyLens-based algal detection and harvesting system.",
+      "results": "Reported field trials at Atladara Lake and Kalali Lake in Vadodara examined navigation and contamination detection. The paper presents an integrated approach to monitoring and freshwater restoration.",
+      "project": "eutrobot.html"
+    },
+    {
+      "id": "nnn-publication",
+      "title": "Neurological Neural Networks (NNN)",
+      "venue": "SSRN",
+      "date": "23 December 2025",
+      "url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5935094",
+      "text": "Research manuscript available through SSRN.",
+      "results": "",
+      "project": ""
+    },
+    {
+      "id": "voice-publication",
+      "title": "Can Voice Reveal Neurodegeneration? A Theory and Prototype of an Offline AI Based Screening Device",
+      "venue": "Zenodo",
+      "date": "20 December 2025",
+      "url": "https://zenodo.org/records/17985539",
+      "text": "A neuroscience and AI theory paper exploring voice-based ALS screening and an offline device prototype.",
+      "results": "",
+      "project": "vaani.html"
+    },
+    {
+      "id": "lumina-publication",
+      "title": "Lumina Derma AI: A Multi Sensor Framework for Accessible Early Stage Skin Cancer Detection in Underserved Communities",
+      "venue": "Zenodo",
+      "date": "19 December 2025",
+      "url": "https://zenodo.org/records/17988064",
+      "text": "Research on a multi-sensor framework for accessible early-stage skin cancer detection in underserved communities.",
+      "results": "",
+      "project": ""
+    }
+  ],
+  "conferences": [
+    {
+      "title": "VENICE 2026",
+      "meta": "Accepted September 2026 · Invited poster presentation",
+      "description": "EutroBot’s research abstract on autonomous freshwater purification, environmental sensing, AI-assisted algal detection, and phytoremediation was accepted for poster presentation.",
+      "publication": "eutrobot-publication"
+    },
+    {
+      "title": "38th World Conference on Neurology 2026",
+      "meta": "Accepted September 2026 · Scheduled 24–25 November 2026 · Rome, Italy",
+      "description": "The VAANI 2.0 abstract was accepted for poster presentation under the theme “Neurology in the Age of AI: From Insight to Innovation.”",
+      "publication": "vaani-publication"
+    },
+    {
+      "title": "INBC 2026",
+      "meta": "Accepted September 2026 · Invited poster presentation",
+      "description": "The VAANI 2.0 abstract was accepted for poster presentation at the 13th Edition of the International Conference on Neurology and Brain Disorders.",
+      "publication": "vaani-publication"
+    },
+    {
+      "title": "ICWS 2026 · IIT Jodhpur",
+      "meta": "Accepted August 2026 · Invited poster presentation",
+      "description": "EutroBot research was selected for presentation at the International Conference on Water Sustainability, organised by IIT Jodhpur’s Department of Environmental and Sustainability Engineering.",
+      "publication": "eutrobot-publication"
+    }
+  ]
+}

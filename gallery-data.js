@@ -1,5 +1,11 @@
 ﻿window.PORTFOLIO_GALLERY = [
     {
+        "file":  "AG.png"
+    },
+    {
+        "file":  "XU3.png"
+    },
+    {
         "file":  "E2.png"
     },
     {

@@ -1,0 +1,568 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[margin=0.88in,headheight=16pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb}
+\usepackage{booktabs,array,tabularx,enumitem,xcolor,titlesec,fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\definecolor{deepblue}{HTML}{173B52}
+\titleformat{\section}{\Large\bfseries\color{deepblue}}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{0pt}{10pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+\linespread{1.08}
+\setlist{leftmargin=1.4em,itemsep=3pt,topsep=3pt}
+\renewcommand{\arraystretch}{1.2}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Eutrobot}
+\fancyhead[R]{\small Detailed Research Paper}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\newcommand{\papersection}[1]{\clearpage\section{#1}}
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+{\small\bfseries\color{deepblue} DETAILED RESEARCH PAPER}\par
+\vspace{12pt}
+{\Huge\bfseries Eutrobot}\par
+\vspace{10pt}
+{\Large Autonomous Multi-Parameter Sensing,\\Adaptive Phytoremediation, and\\Waypoint Navigation for\\Freshwater Ecosystem Restoration}\par
+\vspace{16pt}
+{\large Parikshitsinh Jadeja and Shubhranshu Jha}
+\end{center}
+\vspace{12pt}
+\section*{Abstract}
+Eutrobot is an unmanned surface vehicle project intended to connect spatial water-quality monitoring with autonomous navigation, camera-assisted recognition of surface algal accumulation, and adaptive plant-based treatment. This paper develops the engineering design and research programme in detail. The proposed platform combines pH, total dissolved solids, turbidity, and temperature sensing with colorimetric screening, location-tagged records, a ground station, and distributed embedded control. A four-stage operating cycle links monitoring, navigation, contained phytoremediation, and mechanical harvesting.
+
+The research programme comprises sensor calibration, independent evaluation of a biomass-selection model, supervised waypoint trials, and comparison of adaptive treatment with fixed-biomass and no-plant controls. An analyte-specific mass balance is presented alongside the supplied simplified estimate of approximately 64 g of fresh \textit{Lemna minor} for 100 mg of contaminant-equivalent over 24 hours. Its assumptions are distinguished from an earlier weighted-coefficient model. Neither calculation constitutes an experimental removal result.
+
+The main research programme remains prospective. Appendices preserve the supplied prototype history, preliminary site observations, and reported recognition as contextual records. They do not establish treatment efficiency, regulatory compliance, or statistically significant performance. The intended contribution is a reproducible framework for evaluating whether an affordable mobile platform can produce useful freshwater-quality maps and support defensible treatment decisions under defined operating conditions.
+
+\textbf{Keywords:} freshwater monitoring; unmanned surface vehicle; phytoremediation; \textit{Lemna minor}; colorimetry; navigation; algal harvesting.
+
+\papersection{Introduction and Environmental Motivation}
+\subsection{The freshwater monitoring problem}
+Freshwater management requires information about both the condition of a water body and the processes that may change it. A lake can contain distinct zones around an inlet, a sheltered shoreline, an outlet, and open water. A measurement taken at one position and one time describes that observation; it does not automatically describe every other part of the lake. Eutrobot is motivated by the need to collect a spatially organized record while retaining the ability to investigate a response to measured conditions.
+
+Nutrient enrichment is one part of this problem. Excess nutrients can stimulate algal growth and affect aquatic ecosystems. Water appearance alone is an incomplete basis for deciding where additional measurements are needed. Equally, a sensor reading requires calibration and an appropriate interpretation before it can guide a treatment decision.
+
+\subsection{Monitoring and intervention}
+The proposed platform joins functions that answer different questions. Physicochemical sensing describes selected water properties. Navigation determines where measurements are acquired. Camera observations locate visible surface material. Contained plant experiments investigate nutrient removal, while harvesting evaluates whether selected floating material can be collected. These functions will be tested individually before their integration is evaluated.
+
+The project is intended to complement laboratory analysis, site surveys, and source-control measures. It cannot replace management of continuing pollutant inputs. A mobile platform may identify a location requiring further investigation, but a source attribution will require a separate sampling strategy and supporting evidence.
+
+\subsection{Scope of this paper}
+This document expands the supplied synopsis and technical manuscript into an engineering research paper. It develops the proposed methods, equations, operating assumptions, evaluation criteria, and documentation requirements. Additional protocol details are proposed research choices, rather than a claim that those procedures have already been carried out. No completed controlled remediation experiment is reported.
+
+The research scope is freshwater-quality screening, mapped sampling, supervised autonomous operation, and contained treatment evaluation. Drinking-water certification, pathogen removal, and whole-lake restoration lie outside the evidence currently supplied. This distinction defines what the experiments must demonstrate and keeps conclusions proportional to the measurements.
+
+\papersection{Research Context and Related Work}
+\subsection{Plant-based nutrient treatment}
+Sigcau and colleagues investigated controlled \textit{Lemna minor} treatment using pH-related process information to regulate nitrogen removal in an experimental tank system \cite{sigcau2022}. Their work supports the relevance of feedback control to phytoremediation. Its operating conditions differ from a mobile surface vehicle, so it provides motivation rather than a transferable removal guarantee.
+
+Eutrobot will examine whether measurements can support a defensible choice of biomass and contact time in a defined treatment volume. A plant mass calculated by a controller must be evaluated against measured water-quality changes. The proposed work will therefore separate model calibration from independent testing and record both plant condition and water chemistry.
+
+\subsection{Mobile sampling and surface observation}
+A mobile platform can associate an observation with a visited location and revisit that location during subsequent missions. This creates an opportunity to compare lake zones using a common instrument package. However, motion can introduce errors, including disturbed water near propulsion, changing sensor immersion, and uncertainty in sample position. The platform must therefore be evaluated as a measurement system, not only as a vehicle.
+
+Camera-assisted observation contributes different evidence. A surface image may identify a region resembling algal accumulation, but colour alone does not establish organism identity, toxicity, or dissolved nutrient concentration. The proposed image module will be assessed as a detector of labelled visible targets. Chemistry measurements and reference samples will remain separate data streams.
+
+\subsection{Research gap addressed by Eutrobot}
+The practical gap is a repeatable method for connecting spatial measurements, navigation decisions, and treatment evaluation within one affordable platform. The question is whether combined operation produces interpretable records and whether a treatment decision improves a specified outcome under controlled conditions.
+
+A comprehensive novelty claim would require a systematic review of comparable surface vehicles and remediation systems. The supplied material does not establish priority over all existing work. This paper therefore presents integration, evaluation, and reproducibility as the intended contributions. The project will be successful scientifically if it identifies both useful operating conditions and the conditions under which its assumptions fail.
+
+\papersection{Aim, Research Questions, and Hypotheses}
+\subsection{Overall aim and objectives}
+The aim is to develop and evaluate a modular autonomous surface platform that maps selected freshwater-quality properties and supports adaptive phytoremediation using measurable, analyte-specific treatment assumptions.
+\begin{enumerate}
+\item Establish calibration, repeatability, and practical measurement limits for each selected sensor or assay.
+\item Collect time-stamped and location-tagged measurements across lake zones, with physical samples for reference comparison.
+\item Compare nitrate removal under adaptively selected biomass, predefined fixed biomass, and a no-plant control.
+\item Measure navigation accuracy, route completion, energy use, and manual intervention frequency.
+\item Evaluate camera-assisted target detection and mechanical harvesting separately before integrated operation.
+\end{enumerate}
+
+\subsection{Testable hypotheses}
+\textbf{H1: Spatial variation.} Selected parameters will vary between sampled zones by more than can be explained by measurement uncertainty and repeated readings within a zone. The original coefficient-of-variation target of 25\% will be an exploratory magnitude criterion for suitable concentration variables, not a universal significance test.
+
+\textbf{H2: Adaptive treatment.} A biomass rule calibrated in pilot experiments will improve the predefined 72-hour nitrate-removal outcome relative to fixed deployment. The no-plant control will distinguish treatment-associated change from change occurring without added plants.
+
+\textbf{H3: Autonomous operation.} The vehicle will complete a predefined waypoint mission with usable sensor records and acceptable position error under documented conditions. Success will require repeated missions rather than a single demonstration.
+
+\subsection{Interpreting unsuccessful outcomes}
+An adaptive treatment that performs similarly to fixed biomass would still indicate whether extra control complexity is justified. An unreliable assay or poor navigation result would identify a design limitation. Hypotheses will remain open to rejection, and operating targets will not be rewritten after testing to make unsuccessful trials appear successful.
+
+\papersection{Integrated Architecture and Operating Cycle}
+\subsection{Functional organization}
+The architecture comprises sensing, navigation, visual observation, treatment delivery, harvesting, and supervisory control. Each subsystem will publish a status and timestamped record. A supervisory process will check whether data are sufficiently current and reliable to support the next action. Invalid measurements will be flagged rather than silently substituted with zero.
+
+\begin{center}
+\fbox{\parbox{0.90\linewidth}{\centering
+\textbf{Monitor} $\longrightarrow$ \textbf{Navigate} $\longrightarrow$ \textbf{Treat} $\longrightarrow$ \textbf{Harvest}\\[5pt]
+Sensor records and location $\rightarrow$ decision checks $\rightarrow$ controlled action\\
+All stages $\rightarrow$ mission log and operator oversight}}
+\end{center}
+
+\subsection{Meaning of the four stages}
+\textbf{Monitor:} Acquire stabilized readings, assay identifiers, and camera records. Each observation will carry its unit, method, validity flag, and sampling position. Monitoring can continue when treatment is unavailable.
+
+\textbf{Navigate:} Traverse a predefined route, approach sampling waypoints, and pause long enough for a suitable measurement. Position quality and vehicle condition will be checked before advancing.
+
+\textbf{Treat:} Calculate an experimental plant mass for a known, contained water volume. Initially this stage will operate in controlled vessels or a contained arrangement rather than through unrestricted lake release.
+
+\textbf{Harvest:} Detect candidate surface targets and activate mechanical collection. Algal harvesting and recovery of experimental duckweed will be logged as different operations because their objectives and biomass records differ.
+
+\subsection{States and transitions}
+Proposed states are initialization, ready, navigating, sampling, treatment-enabled, harvesting, return, and fault. Initialization will check communication, battery condition, sensor readiness, and actuator response. Sampling will require a valid location and settling interval. Treatment will require a valid analyte, a defined volume, an appropriate experimental configuration, and a calculated mass within capacity.
+
+Manual intervention, a restart, or a failed transition will become an event in the mission record. This will distinguish a fully autonomous cycle from a cycle completed with assistance. The operating sequence is a research design; completion rates will be determined by subsequent trials.
+
+\papersection{Mechanical Design, Hull, and Propulsion}
+\subsection{Hull and payload arrangement}
+The supplied design describes a hull developed in AutoCAD and fabricated by 3D printing. The research version will use a modular arrangement so probes, electronics, battery, plant container, and harvesting assembly can be serviced separately. It will be evaluated with its complete payload, since empty-hull flotation does not establish loaded stability.
+
+Mass distribution will be documented before trials. Heavy components will be placed to limit excessive trim and roll, while probes will have repeatable immersion depth. The layout will provide access to connectors without unnecessary exposure of electronics. A payload inventory will identify the configuration used in each test.
+
+\subsection{Propulsion and steering}
+Two independently driven DC motors are proposed for propulsion and differential steering. The supplied design specifies toroidal propellers and an L298N driver. Their suitability will be evaluated against measured current demand, available thrust, temperature rise, and manoeuvring performance. A propeller shape does not by itself establish low noise, improved efficiency, or negligible ecological disturbance.
+
+Straight-line travel, turning, stopping, and low-speed approach will be tested separately. Propeller guards and separation from the sampling position will be considered to reduce entanglement and measurement disturbance. The effects of motor activity on magnetic heading and sensor readings will also be assessed.
+
+\subsection{Water exposure and stability}
+Tests will begin with leak checks and stationary flotation, followed by restrained motor operation and short supervised runs. Inspection will include enclosures, cable penetrations, shaft interfaces, and drainage paths. Tests will be repeated after modifications that alter mass or sealing.
+
+Freeboard, visible water ingress, roll during turns, and the effect of loading the collection basket will be recorded. Harvesting can change balance as material accumulates, so usable capacity must be defined by vehicle behaviour as well as container volume.
+
+\subsection{Acceptance criteria}
+The platform must remain recoverable, retain stable probe immersion during sampling, and complete controlled starts and stops. Quantitative dimensions, displacement, motor power, and carrying capacity have not been supplied. These will enter the final specification after measurement rather than being inferred from component names.
+
+\papersection{Electronics, Computing, and Software}
+\subsection{Distributed control}
+Two configurations occur in the supplied records. The manuscript describes a LuckFox Pico with one Arduino UNO R4 WiFi communicating through I\textsuperscript{2}C. The synopsis proposes two Arduino controllers: one for acquisition and one for navigation, actuation, and treatment decisions. The research build will document its adopted configuration; these are not identical wiring diagrams.
+
+Acquisition should continue while higher-level navigation or image processing runs. Controller separation will be considered beneficial only if tests show reliable communication, predictable timing, and recoverable faults. A second controller also introduces wiring and synchronization requirements.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{0.29\linewidth}Y@{}}
+\toprule Component & Intended role\\\midrule
+LuckFox Pico & Supervisory logic, logging, and higher-level processing.\\
+Arduino controllers & Sensor acquisition, motor commands, relay and servo control.\\
+NEO-6M and HMC5883L & Position input and magnetic heading input.\\
+HuskyLens and ESP32-CAM & Candidate target recognition and camera records.\\
+Relay, pump, and servo & Experimental delivery and mechanical collection.\\
+\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Software responsibilities}
+The supplied stack proposes Python for processing, embedded C++ for control, GPS parsing through gpsd or pynmea2, geographic calculations through suitable libraries, and plotting through Matplotlib. Linux distribution and Python-version compatibility will be checked on the processor before the environment is fixed. Library names describe intended functions, not a confirmed deployed configuration.
+
+\subsection{Communication and records}
+Messages will contain a device identifier, timestamp, sequence number, data fields, validity status, and integrity check. Stale messages will not count as current positions or measurements. The ground station will show battery state, location, mission stage, data freshness, and warnings alongside values.
+
+The mission log will preserve raw and processed readings. Firmware versions, calibration identifiers, configuration changes, and restarts will be recorded so that an apparent water-quality change can be checked against changes in the measurement system.
+
+\papersection{Water-Quality Sensing and Colorimetric Screening}
+\subsection{Direct sensor channels}
+The core measurement set comprises pH, TDS, turbidity, and water temperature. Each channel will have its own calibration and interpretation. pH will be reported in pH units. Conductivity-based TDS estimates will retain their conversion assumptions. Turbidity will be reported in reference units only after comparison with suitable standards. Temperature will describe water at the probe location and depth.
+
+A surface temperature reading alone cannot establish stratification throughout a water body. Temperature is also not a dissolved-oxygen measurement. If oxygen is included, an independent method will be added and validated. This prevents an estimated relationship from being counted as a separate measured parameter.
+
+\subsection{Camera-assisted assays}
+The supplied material identifies lead, mercury, nitrate, nitrite, hardness, alkalinity, chlorine, and bromine as candidate colorimetric channels. An ESP32-CAM arrangement is proposed for reading test-strip colour under controlled illumination. Each assay will need a reporting basis, usable range, reaction time, interference assessment, and interpretation of readings outside the readable scale.
+
+Camera exposure, lighting, distance, and background will be held consistent. A colour reference or blank will help identify illumination drift. Classification thresholds will be fixed before evaluation on independent samples. An unreadable strip will be stored as invalid rather than assigned to a convenient class.
+
+\subsection{Measurement inventory}
+The original material refers to seventeen physicochemical measurements but does not supply a complete validated seventeen-channel inventory. The research record will therefore list each parameter with its instrument, method, unit, range, and validation status before a final count is claimed. Derived quantities will be identified separately from direct measurements.
+
+\subsection{Sampling conditions}
+Probe placement will minimize disturbance from propellers, plant delivery, and harvested material. A standard settling period will be selected during testing. Cleaning and rinsing will follow the chosen methods. Samples intended for laboratory confirmation will use method-appropriate containers and handling, with times and locations linked to electronic records. The final selection of assays will prioritize those for which both calibration and independent reference measurements are feasible.
+
+\papersection{Calibration and Measurement Quality}
+\subsection{Reference measurements}
+Calibration will precede field interpretation. For each quantitative channel, at least five reference levels spanning the intended range will be used where the method permits. Repeated readings will identify short-term variation, while independent check samples will test whether calibration transfers beyond the points used to fit it. Calibration and validation samples will be labelled separately.
+
+The reference instrument or assay, standard preparation record, temperature, calibration date, and operator will be recorded. Sensor cleaning, stabilization time, and any dilution will also be documented. A fitted relationship will be used only within the range for which it has been assessed. Values outside that range will be flagged rather than extrapolated without qualification.
+
+\subsection{Error metrics}
+For paired instrument and reference values $x_j$ and $y_j$, respectively, the planned metrics are
+\begin{align}
+\mathrm{Bias}&=\frac{1}{n}\sum_{j=1}^{n}(x_j-y_j),\\
+\mathrm{MAE}&=\frac{1}{n}\sum_{j=1}^{n}|x_j-y_j|,\\
+\mathrm{RMSE}&=\sqrt{\frac{1}{n}\sum_{j=1}^{n}(x_j-y_j)^2}.
+\end{align}
+Bias identifies a consistent offset; absolute error describes average disagreement; RMSE gives greater weight to large deviations. Percentage error will be used only when the reference value and measurement scale make it meaningful. pH accuracy will be described primarily in pH units, rather than as a percentage of a logarithmic quantity.
+
+\subsection{Repeatability, drift, and classification}
+Repeated readings of an unchanged sample will characterize repeatability. A check standard measured before and after a mission will assess drift. If the post-mission check fails the predefined criterion, the affected measurements will be reviewed and flagged.
+
+For colorimetric classes, a confusion matrix will show which levels are confused. Overall accuracy alone can conceal poor performance for an uncommon but important class. Evaluation will therefore include per-class performance and the number of invalid readings. Raw images will be retained for review.
+
+\subsection{Traceable decisions}
+Each measurement used in a treatment calculation will point to a valid calibration record. A failed calibration will disable the corresponding quantitative treatment input while allowing other useful channels to continue. This makes measurement quality an explicit condition for action rather than an assumption hidden inside the controller.
+
+\papersection{Navigation, Positioning, and Mission Control}
+\subsection{Position and heading inputs}
+The supplied design uses a NEO-6M GPS receiver for position and an HMC5883L magnetometer for heading. The magnetometer alone is not a complete inertial measurement unit. Full GPS--IMU fusion would require a documented inertial sensor and an evaluated fusion method. The initial research configuration will therefore distinguish GPS-plus-compass navigation from any later inertial implementation.
+
+Heading calibration will be checked with the motor system and payload installed. Motor current, wiring, and nearby magnetic materials may affect heading input. Position records will include available fix-quality information and timestamps. A navigation command will not rely on an old position solely because its numerical coordinates appear plausible.
+
+\subsection{Waypoint distance and steering}
+For latitude $\phi$, longitude $\lambda$, and an Earth-radius approximation $R$, waypoint distance can be calculated using
+\begin{align}
+a&=\sin^2\!\left(\frac{\Delta\phi}{2}\right)
+ +\cos\phi_1\cos\phi_2\sin^2\!\left(\frac{\Delta\lambda}{2}\right),\\
+d&=2R\,\operatorname{atan2}(\sqrt a,\sqrt{1-a}).
+\end{align}
+Coordinates will be converted to radians for this calculation. Desired bearing and measured heading will define a wrapped angular error. Differential motor commands will be limited to tested values, with reduced speed near a waypoint. Arrival radius, dwell time, and timeout will be selected before validation missions.
+
+\subsection{Sampling missions}
+The vehicle will approach a waypoint, reduce propulsion, wait for sensor stabilization, acquire the record, and advance only after the sampling condition is satisfied. If position uncertainty is too large, the system will record the limitation instead of assigning a precise location to an uncertain observation.
+
+\subsection{Performance and recovery}
+Navigation evaluation will include mean and maximum waypoint error, completed waypoints, mission duration, and operator interventions. Accuracy should be assessed against an independent positional reference where feasible; distance calculated from the same GPS stream is only a self-reported arrival metric.
+
+Low battery, lost communication, failed positioning, and blocked propulsion will trigger tested responses. Return-to-start will be used only while positioning remains reliable; otherwise a controlled stop and supervised retrieval may be more appropriate. A tether, when used, will be documented because its drag can affect performance.
+
+\papersection{Vision-Assisted Detection and Harvesting}
+\subsection{Definition of the visual target}
+The HuskyLens module is proposed for recognizing candidate surface accumulations. The initial target will be visually identifiable material labelled under the project protocol. A positive camera classification will not be interpreted as confirmation of a harmful algal species or toxin. Such claims would require separate biological or chemical identification.
+
+The reference image set will include candidate algal patches and challenging negative examples such as reflections, shadows, leaves, duckweed, floating litter, and similarly coloured water. Images used to configure the detector will be separated from evaluation images by collection session where possible. This will reduce the chance of testing on nearly identical views of the training scene.
+
+\subsection{Detection evaluation}
+The study will record true positives, false positives, false negatives, and true negatives against the labelled reference. Precision and recall will be calculated as
+\[
+\mathrm{Precision}=\frac{TP}{TP+FP},\qquad
+\mathrm{Recall}=\frac{TP}{TP+FN}.
+\]
+The definition of a detection event will be fixed in advance so that many consecutive frames of one patch do not become many independent successful detections. Performance will be reviewed across lighting, distance, and surface-disturbance conditions.
+
+\subsection{Mechanical collection}
+A servo-operated mechanism is proposed to collect selected surface material into a recoverable container. Bench tests will measure repeatable motion, usable opening, jamming, and retention. Aquatic tests will assess whether approaching the target displaces it before collection and whether collected material escapes during subsequent travel.
+
+The protocol will record collection duration, the number of attempts, recovered wet mass under a consistent draining method, and visible non-target material. Mechanical success will be evaluated separately from detector success. Correct detection followed by a failed collection is a harvesting failure, not a successful complete cycle.
+
+\subsection{Integration with navigation}
+During early trials, collection will occur only within a bounded test area under supervision. The controller will limit approach speed and reject a collection attempt when position or actuator status is unsuitable. Changes in vehicle balance as the basket fills will be included in the operating limits. The eventual objective is a repeatable detect--approach--collect--log sequence with clear accounting of every intervention.
+
+\papersection{Phytoremediation Strategy and Biomass Handling}
+\subsection{Role of the plant system}
+The treatment concept uses \textit{Lemna minor} as the biological component of a contained nutrient-removal experiment. Plant-mediated treatment is a process occurring over contact time; transferring plants into water is not itself evidence of removal. The study will therefore pair biomass records with repeated analyte measurements and a matched no-plant control.
+
+Nitrate will be the initial treatment endpoint because the proposed experimental programme already identifies it explicitly. Heavy-metal screening, hardness, alkalinity, and other water properties will not automatically be treated as interchangeable remediation targets. Any future target will need its own mechanism, measurement method, calibration, and treatment evaluation.
+
+\subsection{Biomass preparation and measurement}
+The research record will identify the plant source, stock condition, acclimation procedure, and appearance before use. Fresh mass will be measured after a consistent draining or blotting procedure. Otherwise, differences in retained water may be mistaken for differences in biomass. A representative subsample will be used to estimate dry-mass fraction when feasible.
+
+Surface coverage and vessel dimensions will accompany biomass mass. Equal grams in vessels with different surface areas may produce different crowding, lighting, and contact conditions. Plant condition will be assessed over time using photographs and a predefined descriptive scale, alongside any mass measurements.
+
+\subsection{Delivery and recovery}
+The supplied design proposes a relay-controlled pump or delivery mechanism. It will first be tested for the mass actually delivered, repeatability, clogging, and plant damage. Pump run time will not be assumed to equal a known biomass dose until this relationship is measured. A weighed reservoir or collected output can support calibration.
+
+At the end of each trial, plants will be recovered and their destination recorded. Biomass exposed to contaminated water will not be assumed suitable for feed, compost, or unrestricted reuse. Treatment completion includes handling the recovered material, not only measuring the remaining water.
+
+\subsection{Limits of the initial treatment study}
+The experiment will use defined volumes and supervised containment. Open-water release would introduce uncertain residence time, transport, ecological effects, and recovery requirements. Those questions belong to a later separately designed study. The initial aim is to establish whether the proposed biomass rule has useful predictive value under conditions where its inputs can actually be measured.
+
+\papersection{Adaptive Biomass Model and Dimensional Basis}
+\subsection{Analyte-specific mass balance}
+For analyte $i$, the desired removal load is
+\[
+L_i=\max(0,C_{i,0}-C_{i,\mathrm{target}})V.
+\]
+With concentration in mg/L and volume in L, $L_i$ has units of mg. If $q_i$ is an estimated uptake rate in mg per gram dry biomass per day, a simplified fresh-mass estimate is
+\begin{equation}
+M_{\mathrm{fresh},i}=\frac{L_i}{q_iT f_d},
+\label{eq:biomass}
+\end{equation}
+where $T$ is contact time in days and $f_d$ is dry mass divided by fresh mass. Concentration and uptake must use the same analyte basis. The target is an experimental endpoint, not automatically a drinking-water limit.
+
+\subsection{Earlier weighted-coefficient proposal}
+The supplied synopsis proposes the following inputs. They are retained as model assumptions requiring source verification, not accepted universal uptake rates.
+\begin{center}\small
+\begin{tabular}{lrrr}
+\toprule Category & Rate & Weight & Contribution\\\midrule
+Nitrate & 10 & 0.40 & 4.00\\
+Phosphate & 4 & 0.25 & 1.00\\
+COD & 8 & 0.20 & 1.60\\
+Heavy metals & 2 & 0.15 & 0.30\\\midrule
+Weighted sum & & 1.00 & 6.90\\\bottomrule
+\end{tabular}\end{center}
+The proposed rates use a dry-biomass basis of mg/g/day. The arithmetic yields 6.9, but combining different analytes and an oxygen-demand metric does not establish a physical uptake coefficient for an unspecified mixture. A traceable source for the claimed CPCB calibration was not supplied.
+
+\subsection{Research implementation}
+The initial controller will use a nitrate-specific coefficient estimated from pilot measurements. A proposed 95\% water-content assumption corresponds to $f_d=0.05$, so dry mass is multiplied by 20 to estimate fresh mass. This fraction will be measured or explicitly treated as uncertain.
+
+The estimate will be checked against available biomass, vessel area, maximum coverage, and validated concentration range. If required mass exceeds experimental capacity, the controller will flag an infeasible treatment rather than silently treat a capped dose as sufficient. An independent trial will then test the prediction. Multiple pollutants will require separate evidence rather than uncritical reuse of the weighted sum.
+
+\papersection{The 64 g Example and Model Sensitivity}
+\subsection{Supplied illustrative estimate}
+Under the supplied simplified model, approximately 64 g of fresh \textit{Lemna minor} would provide enough modeled uptake capacity to remove 100 mg of contaminant-equivalent from 1 L of water over 24 hours. This is a calculation scenario, not a measured removal outcome. It implies
+\[
+r_{\mathrm{fresh}}=\frac{100}{64\times1}
+=1.5625\;\mathrm{mg\,g^{-1}\,day^{-1}}.
+\]
+Using that assumed fresh-mass coefficient gives $M_{\mathrm{fresh}}=100/(1.5625\times1)=64$ g. The 100 mg load in 1 L corresponds to a desired concentration decrease of 100 mg/L. The term ``contaminant-equivalent'' must be defined before it can serve as an analytical endpoint.
+
+\subsection{Reconciliation with the earlier formula}
+The earlier proposal uses $q=6.9$ mg per gram dry mass per day and $f_d=0.05$. For the same load and duration, Equation~\ref{eq:biomass} gives
+\[
+M_{\mathrm{fresh}}=\frac{100}{6.9\times1\times0.05}
+\approx289.9\;\mathrm{g}.
+\]
+Thus the two examples assume different uptake capacities. The 64 g scenario would imply a dry-mass rate of $1.5625/0.05=31.25$ mg/g/day under the same 5\% dry-mass assumption. Neither coefficient has been experimentally established for this application in the supplied material.
+
+\subsection{Sensitivity under the simplified relationship}
+\begin{center}\small
+\begin{tabular}{lrr}
+\toprule Scenario & Assumption & Fresh mass (g)\\\midrule
+Supplied illustration & 100 mg; 1 day & 64\\
+Half the assumed uptake rate & 100 mg; 1 day & 128\\
+Twice the load & 200 mg; 1 day & 128\\
+Twice the contact time & 100 mg; 2 days & 32\\\bottomrule
+\end{tabular}\end{center}
+These are mathematical consequences of constant-rate assumptions, not predictions of biological performance. Longer contact time may change biomass, concentration, or plant condition, and higher mass may increase crowding. Trials will evaluate those effects before the model is used to recommend a practical dose. Preserving both scenarios makes the uncertainty visible and identifies which measurements are most important for resolving it.
+
+\papersection{Controlled Remediation Experimental Design}
+\subsection{Treatments and experimental units}
+The proposed study will compare adaptive biomass, a predefined fixed biomass, and a no-plant control. Each treatment will initially use at least three independent vessels, with final replication informed by pilot variability and the precision required. The vessel is the experimental unit. Repeated readings from one vessel improve its time record but do not create additional independent replicates.
+
+Water volume, initial concentration, vessel geometry, lighting, temperature, and sampling procedures will be matched or recorded. Vessel positions will be randomized, and sample labels can be coded during chemical analysis. The fixed dose will be specified before outcome inspection and justified as a meaningful comparison rather than deliberately chosen to perform poorly.
+
+\subsection{Concentration and chemical basis}
+The original plan proposes 200 mg/L nitrate prepared using ammonium nitrate. This introduces both nitrate and ammonium, so the chemical source and nitrogen species must be considered when interpreting uptake. The final protocol will specify whether concentrations are reported as nitrate ion or nitrate-nitrogen and will select a reference method covering the intended range. Pilot work will determine a suitable loading for viable plants and reliable measurement.
+
+No preparation quantities are assumed here. The experimental record will document reagent identity, purity, preparation calculations, and independently checked starting concentrations. If multiple nitrogen species are present, attributing a change solely to nitrate uptake will require an appropriate measurement strategy.
+
+\subsection{Sampling schedule}
+Samples are planned at 0, 24, 48, and 72 hours. At each point, the study will record analyte concentration, water volume or relevant volume changes, temperature, pH, and plant condition. Removed sample volume, replenishment, and evaporation will be documented. Biomass measurements will use a consistent fresh-mass procedure and record any plant loss.
+
+\subsection{Independent validation}
+Pilot experiments will estimate uptake and set capacity limits. A later set of trials will evaluate the resulting rule without refitting it to the same outcomes. Both absolute removal and removal per unit biomass will be reported. If adaptive deployment uses more plants than fixed deployment, a greater absolute removal alone will not establish superior biomass efficiency. Resource use and predictive accuracy will therefore accompany the primary treatment comparison.
+
+\papersection{Field Survey and Spatial Sampling Protocol}
+\subsection{Site and waypoint design}
+Vasna Village Lake, Vadodara, is the proposed principal field site. Trials will depend on access permission, site conditions, and a recoverable operating area. The initial design uses six waypoints representing actual site features such as an inlet, an outlet, near-shore water, central water, open water, and visible surface accumulation where present. Coordinates will be selected from a site survey rather than invented to complete a nominal list.
+
+The shoreline, launch point, obstacles, restricted areas, and retrieval route will be documented before operation. A waypoint table will contain identifiers, coordinates, zone descriptions, target depth, and planned sampling order. Photographs can support location descriptions without substituting for measured coordinates.
+
+\subsection{Repeated sampling}
+The same zones will be visited repeatedly to estimate within-zone variability. Sampling order will be recorded and, where feasible, varied across visits to reduce confounding between location and time of day. Weather, recent rainfall observations, visible inflows, and unusual disturbances will accompany the record.
+
+At each waypoint, the platform will pause for stabilization before logging measurements. Reference water samples will be taken as close as practicable in time, position, and depth to the onboard measurements. Sample labels will connect the physical container to the mission log and laboratory report.
+
+\subsection{Mapping and coverage}
+Initial maps will show measured points with values and uncertainty flags. Six waypoints do not establish a continuously measured lake surface. Interpolated maps, if later produced, will identify their assumptions and spatial support. An apparently smooth colour surface will not be presented as if every displayed location was sampled.
+
+\subsection{Field boundaries}
+The initial field programme evaluates monitoring and navigation. Experimental pollutants and duckweed will not be released into the lake as part of these trials. Mechanical harvesting tests will use a bounded, supervised arrangement and document non-target collection. A tether or other retrieval system will be used where appropriate, with its influence on motion recorded.
+
+All aborted missions and reasons for interruption will be retained. This will provide an honest denominator for reliability metrics and help determine whether the proposed platform is suitable for more demanding environments.
+
+\papersection{Planned Statistical Analysis and Data Management}
+\subsection{Treatment outcomes}
+For initial concentration $C_0>0$ and concentration at elapsed time $t$, denoted $C(t)$, concentration reduction will be calculated as
+\[
+\eta_C(t)=100\frac{C_0-C(t)}{C_0}.
+\]
+Mass removal will account separately for the measured water volumes and analyte removed through sampling. A decline in concentration caused by dilution will not be counted as plant-mediated removal. The no-plant control will provide context for losses or transformations occurring without added biomass.
+
+The primary comparison will be the predefined 72-hour outcome. Treatment differences will be reported with effect sizes and confidence intervals. The original significance threshold of 0.05 may be used if an appropriate test and its assumptions are specified before analysis. A threshold alone does not establish practical importance or model validity. For repeated observations, the analysis will preserve the vessel structure rather than treat every time point as independent.
+
+\subsection{Spatial variation}
+Between-zone differences will be compared with within-zone variation, measurement uncertainty, and sampling-time effects. For suitable positive concentration variables, an exploratory coefficient of variation can be computed as
+\[
+\mathrm{CV}=100\frac{s}{\bar{x}}.
+\]
+This statistic becomes unstable near a zero mean and is unsuitable as a general measure for pH. A CV above 25\% is not automatically statistical evidence for a spatial effect. Replication and an appropriate comparison are still required.
+
+\subsection{Missing, censored, and invalid data}
+Missing observations will be coded as not reported or not collected, rather than zero. An above-range reading will retain its bound, such as $\geq425$ mg/L, without assigning an exact value. Instrument faults and rejected samples will include reasons. Exclusion rules will be written before the principal comparison wherever possible.
+
+\subsection{Data package}
+The final package will include raw sensor records, processed tables, calibration records, sample metadata, mission tracks, images, software versions, and an analysis log. Each row will carry a unique identifier connecting it to its source. A data dictionary will define units, analyte bases, missing-value codes, and calculated fields. Published charts will be generated from these tables so that labels and numerical values can be checked against the same underlying record.
+
+\papersection{Engineering Targets and Expected Outcomes}
+\subsection{Provisional performance targets}
+The supplied goals are retained as targets for evaluation. They do not describe achieved performance. Acceptance criteria will be finalized before independent validation and interpreted with their uncertainty and operating conditions.
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{0.25\linewidth}Y@{}}
+\toprule Area & Target and interpretation\\\midrule
+Sensing & Original TDS error goal below 5\% and turbidity error below 10\% where reference range permits; pH assessed in absolute pH units.\\
+Colorimetry & Above 80\% classification accuracy on independent samples, accompanied by per-class errors.\\
+Navigation & Mean waypoint error within 3 m, assessed against an appropriate positional reference.\\
+Endurance & More than 3 hours per charge under a documented payload and operating duty cycle.\\
+Coverage & Original goal above 70\%, only if area and effective sampling footprint are defined.\\
+Treatment & Compare adaptive and fixed biomass over 72 hours; quantify effect size and resource use.\\
+\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Biological and spatial aspirations}
+The original synopsis proposes 30--40\% greater nitrate reduction with adaptive deployment, biomass doubling within 48--72 hours, and a CV above 25\% for at least two parameters. These remain hypotheses or aspirations. The meaning of ``greater reduction'' must distinguish a relative percentage improvement from a percentage-point difference. Plant growth will be measured rather than assumed when estimating treatment capacity.
+
+Finding a hotspot is not a required outcome: a survey showing little variation can also be informative. Any comparison with a water-quality guideline will require the correct analyte form, intended water use, analytical method, and current applicable standard. Screening readings alone will not establish drinking-water suitability.
+
+\subsection{Expected research outputs}
+Outputs will comprise a documented prototype, calibrated measurement channels, a waypoint dataset, an independently evaluated biomass rule, and a record of system limitations. Integrated operation will be assessed through a complete mission log covering monitoring, navigation, contained treatment decisions, and harvesting. Successful completion without intervention is an aspiration whose frequency must be measured over repeated opportunities.
+
+\papersection{Operational Reliability, Resources, and Work Plan}
+\subsection{Reliability and environmental handling}
+Field readiness will be established through bench tests, restrained aquatic tests, and progressively longer missions. A pre-mission check will cover enclosure integrity, battery condition, propulsion, sensor readiness, communication, and retrieval. A post-mission inspection will document water ingress, fouling, damage, and calibration checks. Changes made after a failure will be linked to a new configuration record.
+
+Contained treatment vessels and collected biomass will be managed under the experimental handling plan. Chemical standards will remain in laboratory work, and field missions will use naturally occurring water samples. Any later release or open-water treatment experiment will require a separate assessment of containment, recovery, and site authorization.
+
+\subsection{Cost and energy accounting}
+The supplied project sets an affordability goal below INR 50,000. No itemized, verified bill of materials was provided, so the amount is retained as a design target. Cost records will separate the hull, motors, electronics, sensing, power system, treatment hardware, and consumables. Reference laboratory analysis, replacement parts, travel, and maintenance will be reported separately from initial hardware cost.
+
+Battery endurance will be measured using an actual mission profile. A planning estimate is $t_{\mathrm{est}}=E_{\mathrm{usable}}/P_{\mathrm{average}}$, with energy in Wh and power in W. Usable energy will include the operating reserve and conversion losses. A stationary electronics test will not establish endurance under propulsion and harvesting loads.
+
+\subsection{Proposed eight-week sequence}
+\begin{enumerate}
+\item \textbf{Weeks 1--2:} Finalize configuration, component inventory, data fields, site plan, and test criteria; complete bench checks.
+\item \textbf{Weeks 3--4:} Calibrate sensors, evaluate assay classes, test delivery repeatability, and conduct pilot uptake trials.
+\item \textbf{Weeks 5--6:} Run independent replicated treatment comparisons and controlled navigation and harvesting evaluations.
+\item \textbf{Weeks 7--8:} Conduct permitted field surveys, reconcile records, analyze uncertainty, and prepare the final evidence package.
+\end{enumerate}
+This is a proposed sequence rather than a fixed completion promise. Failed calibration or unreliable recovery will be resolved before dependent trials proceed. The work plan prioritizes interpretable evidence over completing every subsystem on an arbitrary date.
+
+\papersection{Discussion, Future Development, and Conclusion}
+\subsection{What the integrated approach could contribute}
+Eutrobot could provide a practical way to connect location-tagged screening with decisions about further sampling and contained treatment. Its value will depend on the quality of the records and the usefulness of the decisions, not only the number of integrated modules. A simple, well-calibrated subset of channels may be more informative than a larger set with uncertain interpretation.
+
+The most important unresolved issue is the link between measured concentration, treatment volume, biomass, and actual removal. The two supplied biomass examples demonstrate why model assumptions must remain visible. Calibration of a nitrate-specific rate and independent validation will establish whether the simple rule is useful or needs a more detailed description of growth, concentration dependence, or contact conditions.
+
+\subsection{Future development}
+The supplied long-term roadmap includes coordinated multi-vehicle surveys, LoRa communication, solar-assisted power, improved edge processing, and electrochemical sensing. Each extension creates a distinct evaluation need. Multiple vehicles require compatible calibration and synchronized records; communication upgrades require tested range and outage behaviour; solar assistance requires an energy balance under realistic conditions.
+
+More advanced sensing could reduce manual strip handling, but it will still require reference checks. Larger-scale treatment will need evidence about mixing, residence time, biomass containment, harvesting, and continuing pollutant inputs. Commercial deployment would additionally require maintenance planning, reliable supply of consumables, operator training, and defensible service costs.
+
+\subsection{Environmental significance}
+The project's freshwater focus aligns most directly with the ambition of clean water and sanitation. Broader aspirations relating to aquatic ecosystems and climate action will require measured outcomes before impact is claimed. Numbers of potential water bodies served and claims of national scalability cannot be derived from a single prototype or a short field survey.
+
+\subsection{Conclusion}
+This paper specifies a detailed research programme for an autonomous freshwater monitoring and treatment platform. It connects engineering design with calibration, replicated experiments, spatial sampling, and transparent performance evaluation. The 64 g illustration and earlier weighted model are preserved as distinct assumptions for investigation. The proposed work aims to determine when Eutrobot can provide reliable observations and useful treatment guidance, while documenting the limits that must be resolved before wider deployment.
+
+\appendix
+\papersection{Supplied Prototype Development Record}
+This appendix preserves project history from the supplied materials. It is background context, separate from the prospective experimental programme. Described features and demonstrations are not substitutes for quantitative validation records.
+
+\subsection{Eutrobot 1.0: January 2025}
+The first concept is described as an eight-hour build using premade components. Ultrasonic sensing supported a terrestrial simulation, and a turmeric-based indicator was used for an elementary demonstration. This stage introduced the idea of linking an observation to a response. It did not establish water operability, quantitative contaminant analysis, or aquatic navigation.
+
+\subsection{Eutrobot 2.0: February 2025}
+The second iteration reportedly added pH, TDS, and turbidity channels, a ground station, and a relay-based response mechanism. The development emphasis shifted from a conceptual demonstration to electronic acquisition and remote display. The supplied history states that the platform remained non-operational on water, so aquatic accuracy and hull performance were still unresolved.
+
+\subsection{Eutrobot 3.0: April 2025}
+The third stage introduced a surface-vehicle hull and toroidal propulsion, with initial computer-vision integration. The history describes flotation and open-water operation as a milestone. Numerical stability, thrust, noise, and energy data were not supplied. These characteristics are therefore included as subjects for the present engineering evaluation rather than established advantages of the propeller design.
+
+\subsection{Eutrobot X: August 2025}
+The fourth stage reportedly combined a 3D-printed hull, camera-based colorimetry, temperature sensing, HuskyLens-assisted detection, a servo collection mechanism, and GPS-plus-magnetometer navigation. Atladara and Kalali Lakes are named as deployment locations. The earlier seventeen-parameter count and temperature-derived oxygen claim require the measurement distinctions discussed in the main text.
+
+\subsection{Research version: 2026}
+The latest synopsis proposes rebuilding around two dedicated Arduino controllers and a higher-level processor. Its purpose is to improve organization, documentation, and testability. The one-controller manuscript and two-controller proposal are retained as successive configuration descriptions. Final diagrams, firmware records, and component lists will identify the actual validated build. Original architecture and prototype image files were named in the supplied manuscript but were not attached; no substitute photographs or invented diagrams are presented as original evidence.
+
+\papersection{Supplied Three-Lake Observation Record}
+The values below reproduce the supplied manuscript's comparison. They are preliminary reported observations, not results from the proposed replicated trials. Sampling dates, assay provenance for individual values, replicate counts, and uncertainties were not supplied. NR means not reported and does not mean zero.
+
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}Yrrr@{}}
+\toprule Property & Atladara & Kalali & Vasna\\\midrule
+pH & 8.4 & 7.2 & 8.7\\
+Alkalinity (mg/L) & 120 & 180* & 180\\
+Hardness (mg/L) & $\sim250$ & 425* & $\geq425$\\
+Chlorine (mg/L) & NR & NR & 1\\
+Bromine (mg/L) & NR & NR & 1\\\bottomrule
+\end{tabularx}\end{center}
+{\small *The supplied manuscript attributes these Kalali values to an earlier comparison image rather than an independently documented numerical table.}
+
+\subsection{Provenance and conflicting entries}
+The source describes an earlier Vasna alkalinity label of 425 mg/L and a revised value of 180 mg/L. This appendix follows the revised value while preserving the existence of the conflict. The same source describes Kalali hardness as ND in one earlier table and 425 mg/L in an image. Without the original assay record, that conflict cannot be resolved by treating ND as zero or assuming that the image is authoritative.
+
+Hardness and alkalinity reporting bases were not documented in the supplied record. The chemical forms represented by the chlorine and bromine labels were also not specified. These labels are therefore retained without converting them into free chlorine, total chlorine, bromide, or another form.
+
+\subsection{Descriptive interpretation}
+The supplied Vasna pH is 0.3 units above Atladara and 1.5 above Kalali. Vasna alkalinity is 60 mg/L above Atladara and matches the image-attributed Kalali value. These arithmetic comparisons describe the entries only. They do not establish stable differences among entire lakes, and pH-unit differences are not expressed as percentage changes.
+
+The Vasna hardness bound does not establish its exact value or exact difference from Kalali. No statistical significance or error bars can be calculated from the supplied single entries alone. Most importantly, these observations contain no matched pre- and post-treatment record and therefore provide no estimate of Eutrobot's removal efficiency.
+
+\papersection{Additional Site Notes and Evidence Reconciliation}
+\subsection{Earlier urban-lake screening notes}
+The original synopsis reports Atladara pH 8.4 with a lead screening value of 20 mg/L, and Kalali pH 7.2 with a nitrate screening value of 250 mg/L. These values are preserved here as supplied notes requiring confirmation of method, units, range, calibration, and sample identity. They are not used as validated concentrations for dosing or as proof of a regulatory exceedance.
+
+The earlier narrative associates pollution with idol immersion, agricultural runoff, and sewage. Those are proposed source explanations, not causes established by the available measurements. Source attribution would require additional evidence about inputs, timing, sampling locations, and alternative explanations.
+
+\subsection{River records}
+\begin{center}\small
+\begin{tabularx}{\linewidth}{@{}p{0.30\linewidth}Y@{}}
+\toprule Supplied site label & Reported note and limitation\\\midrule
+Narmada, ``at Ujjain'' & pH 6.8; lead 5 mg/L. The combined river/location label requires coordinate verification before geographic interpretation.\\
+Kshipra, Ujjain & pH 8.0; hardness 425 mg/L. Analytical method and hardness basis not supplied.\\
+Ganga, Prayagraj & pH 7.6; narrative reports no critical heavy-metal detection. Analytes, detection limits, and supporting assay records not supplied.\\
+\bottomrule
+\end{tabularx}\end{center}
+
+\subsection{Community context}
+The supplied project motivation includes urban lakes and rivers used for pilgrimage and ritual activities. This supports the value of clear, respectful environmental communication. It does not permit conclusions about exposure, health outcomes, religious practice, or water suitability from a few unconfirmed readings. Any public interpretation should identify the sample, method, date, and limits of the evidence.
+
+\subsection{Claims requiring additional support}
+The original text includes nationwide contamination percentages, a count exceeding 70,000 affected water bodies, universal comparisons with WHO limits, and claims of being the first integrated system. Traceable evidence sufficient to establish those claims was not supplied. They are not adopted as findings in this paper.
+
+The appropriate next step is to reconcile original field sheets and laboratory records, verify coordinates and units, and repeat priority measurements with suitable reference methods. This appendix preserves the information for that process without converting uncertainty into apparent precision or treating a screening observation as proof of treatment effectiveness.
+
+\papersection{Reported Recognition and Documentation Checklist}
+\subsection{Recognition supplied by the authors}
+The following items are reproduced as author-reported project history. Certificates, ranking lists, and event records were not supplied for independent verification. Recognition reflects participation or judging outcomes and does not validate a specific scientific claim.
+\begin{itemize}
+\item First place, Junior Makeathon 2025, IIT Madras; the source describes participation exceeding 1,000 teams.
+\item National finalist, Stockholm Junior Water Prize India 2026, IIT Madras.
+\item Gold medal, World Robot Olympiad Regional Championship 2025, Ahmedabad.
+\item Seventh place nationally, World Robot Olympiad National Championship 2025, Hyderabad.
+\item Second prize, STEMxplore 2026, IISc Bangalore; the source describes participation exceeding 100 projects.
+\item Innovation panelist, STEM Best Practice Summit, IIM Mumbai.
+\item International nomination, FuturePort Youth Awards 2025.
+\end{itemize}
+
+\subsection{Records supporting a complete research submission}
+The proposed evidence package will include a dated research log, configuration history, calibration sheets, raw sample records, reference reports, original image files, navigation tracks, and analysis outputs. Field permissions and experiment dates will be retained with the study record. Eligibility for any competition will be checked against the applicable current rules, rather than inferred from earlier participation or from the software architecture.
+
+\subsection{Specific unresolved documentation}
+Priority records are the complete sensor inventory, the original lake assay sheets, the source and basis of uptake coefficients, and the delivered-versus-commanded biomass measurements. The model requires a defined analyte, fresh/dry mass basis, contact duration, and treatment volume. The field dataset requires coordinates, timestamps, depth, method, range, and replicate identifiers.
+
+The supplied manuscript names three external image files: an architecture image, prototype photographs, and a phytoremediation overview. Because the image assets were not included, the paper remains self-contained without references to missing files. An original photograph can document a physical configuration; a literature overview image cannot substitute for measured removal in the project.
+
+Completing these records will allow the paper to evolve from a detailed design and research programme into a report of independently assessable experiments. This documentation work is part of the research contribution because it makes the eventual claims reproducible.
+
+\clearpage
+\section*{References and Source Notes}
+\addcontentsline{toc}{section}{References and Source Notes}
+\begingroup
+\renewcommand{\refname}{Verified Research Reference}
+\begin{thebibliography}{9}
+\bibitem{sigcau2022}
+K. Sigcau, I. L. van Rooyen, Z. Hoek, H. G. Brink, and W. Nicol,
+``Online Control of \textit{Lemna minor} L. Phytoremediation: Using pH to Minimize the Nitrogen Outlet Concentration,''
+\textit{Plants}, vol. 11, no. 11, article 1456, 2022.
+\href{https://doi.org/10.3390/plants11111456}{doi:10.3390/plants11111456}.
+Full text: \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC9182771/}.
+\end{thebibliography}
+\endgroup
+
+\subsection*{Project materials used}
+\begin{enumerate}
+\item Author-supplied \emph{IRIS National Fair 2026--27 Project Synopsis}: project concept, prototype chronology, proposed hardware, hypotheses, uptake assumptions, planned trials, preliminary field notes, targets, recognition, and future scope.
+\item Author-supplied IEEE-style Eutrobot manuscript: architecture and software descriptions, three-lake comparison, provenance conflicts, analyte-specific model, and limitations.
+\item Author-supplied planning statement: approximately 64 g fresh \textit{Lemna minor} for a modeled 100 mg contaminant-equivalent load in 1 L over 24 hours.
+\end{enumerate}
+These project materials are unpublished inputs for this document. They are distinguished from independently published literature and from experiments proposed in the main text.
+
+\subsection*{Bibliographic limitations}
+Several entries in the supplied manuscript identify only a journal, website, or broad topic without enough detail to establish a specific supporting paper. Those entries are not expanded into invented citations. The claimed CPCB weighting requires a traceable dataset and derivation. Any additional uptake reference must specify analyte, conditions, duration, and biomass basis before its numerical rate is adopted.
+
+\subsection*{Status of this paper}
+The main text is a detailed prospective research programme. The appendices preserve supplied contextual records with their limitations. No experimental dataset, removal efficiency, statistical significance, or certified water-safety conclusion has been fabricated to complete the paper. The author line contains only Parikshitsinh Jadeja and Shubhranshu Jha.
+\end{document}

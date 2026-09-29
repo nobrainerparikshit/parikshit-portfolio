@@ -2,7 +2,6 @@
 .hero-big-name { font-size: clamp(1.3rem, 1.95vw, 2.05rem); overflow-wrap: normal; }
 .hero-now { flex-wrap: wrap; letter-spacing: .05em; }
 .hero-img-wrap { background: #ecece3; }
-.hero-img-wrap img { object-fit: contain; }
 .author-photo { object-position: 20% 14%; }
 .doc-date a { color: inherit; overflow-wrap: anywhere; }
 .records,.project-grid { grid-column: 1 / -1; }
@@ -51,7 +50,6 @@ a:focus-visible,button:focus-visible { outline: 2px solid #62816b; outline-offse
   .record { padding: 1.8rem 0; }
   .record h3 { font-size: 1.35rem; }
   .footer-socials { margin-top: .7rem; }
-  .hero-president { height: 62vh; }
   .doc-title { overflow-wrap: anywhere; }
   .contact-aside { padding-top: 1.5rem; }
 }
